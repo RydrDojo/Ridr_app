@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' }}">
 </head>
 <body class="{% block body_class %}{% endblock %}">
     <header>
@@ -29,5 +30,7 @@
             &copy 2016 Ridr
         </div>
     </footer>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>
