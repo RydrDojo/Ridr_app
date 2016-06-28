@@ -1,3 +1,52 @@
 * {
   font-family: monaco;
 }
+.top_menu{
+	display: inline-block;
+	position: relative;
+	bottom: 20px;
+	left: 130px;
+}
+.top_menu ul { 
+display: inline-block;
+text-decoration: none;
+list-style: none;
+}
+.top_menu a{
+text-decoration: none;
+font-weight: bold;
+font-size: 150%;
+color: #f17c30;
+}
+
+.image{
+	display: inline-block;
+}
+.top_menu button{
+	border-radius: 8px;
+}
+.header{
+	border: 1px solid silver;
+	height: 100px;
+	background-color: white;
+	width: 0 auto;
+}
+body.home:not(.logged_user){
+	background-image: url("../images/roadtrip.jpg");
+}
+
+.start{
+width: 400px;
+margin-left: 400px;
+margin-top: 150px;
+}
+.fa-facebook-official{
+	font-size: 20rem;
+	margin-left: 300px;
+	color: blue;
+}
+.event {
+display: inline-block;
+margin-left: 100px;
+
+}
