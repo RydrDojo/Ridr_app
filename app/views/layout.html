@@ -3,19 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/bootstrap.min.css") }}" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form-elements.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' )}}">
+    <script src="{{ url_for('static',filename='js/jquery-2.2.3.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='css/bootstrap.min.js')}}"></script>
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '259154491127882',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+​
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 </head>
-<body class="{% block body_class %}{% endblock %}">
+<body class="{% block body_class %}{% endblock %} {%if 'user' in session%}logged_user{%endif%} logged_user">
     <header>
         <div class="header container {% block header_class %}{% endblock %}">
-            <img class="logo" src="logo.png">
-            <h1 class="site_title">
-                Ridr
-            </h1>
+        <div class="image">
+            <img class="logo" src="static/images/RIDR.png" height="100px" width="350px">
+        </div>
+            <!-- <h1 class="site_title">
+            </h1> -->
             <div class="top_menu">
                 <ul>
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/register">Sign Up</a></li>
+                {%if 'user' not in session%}
+                    <button><li><a href="/login">Login</a></li></button>
+                    <button><li><a href="/register">Sign Up</a></li></button>
+                {%else%}
+                    <button><li><a href="/">Home</a></li></button>
+                    <button><li><a href="/rides">Rides</a></li></button>
+                    <button><li><a href="/inbox">Inbox</a></li></button>
+                    <button><li><a href="/account">Account</a></li></button>
+                    <button><li><a href="/logout">Logout</a></li></button>
+                {%endif%}
                 </ul>
             </div>
         </div>
