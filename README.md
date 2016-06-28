@@ -1,3 +1,5 @@
+![alt tag](https://raw.githubusercontent.com/RydrDojo/Ridr/tree/routes/RIDR.png)
+
 # Ridr
 
 ##What is Ridr?
