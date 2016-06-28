@@ -4,3 +4,4 @@
 venv/*
 pylotVenv/*
 __pycache__/*
+.idea/*

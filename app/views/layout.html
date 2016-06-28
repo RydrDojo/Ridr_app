@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ url_for('static', filename="css/bootstrap.min.css") }}" >
     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/form-elements.css') }}">
@@ -26,6 +27,9 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+=======
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+>>>>>>> master
 </head>
 <body class="{% block body_class %}{% endblock %} {%if 'user' in session%}logged_user{%endif%} logged_user">
     <header>
