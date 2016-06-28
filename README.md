@@ -2,7 +2,7 @@
 
 ##What is Ridr?
 
-Ridr is a ride-sharing app that matches drivers with empty cars and riders who need to get somewhere. There is no cost to use
+Ridr is a ride-sharing app that matches drivers and their empty cars with riders who need to get somewhere. There is no cost to use
  the platform but users may be rated and your rating affects the likelihood that you will be accepted onto rides.
 
 ##Why Ridr?
