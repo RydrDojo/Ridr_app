@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    <header>
+        <div class="header container {% block header_class %}{% endblock %}">
+            <img class="logo" src="logo.png">
+            <h1 class="site_title">
+                Ridr
+            </h1>
+            <div class="top_menu">
+                <ul>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="content container {% block content_class %}{% endblock %}">
+            {% block content %}{% endblock %}
+        </div>
+    </section>
+    <footer>
+        <div class="copyright">
+            &copy 2016 Ridr
+        </div>
+    </footer>
+</body>
+</html>
