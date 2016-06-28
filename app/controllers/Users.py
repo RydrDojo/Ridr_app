@@ -1,5 +1,5 @@
 from system.core.controller import *
-import facebook
+# import facebook
 
 class Users(Controller):
     def __init__(self, action):
@@ -45,4 +45,4 @@ class Users(Controller):
         if 'user' in session:
             return redirect('/')
 
-        result = get_user_from_cookie
+        # result = get_user_from_cookie
