@@ -1,46 +1,29 @@
-"""
-    Routes Configuration File
-
-    Put Routing rules here
-"""
 from system.core.router import routes
 
-"""
-    This is where you define routes
-    
-    Start by defining the default controller
-    Pylot will look for the index method in the default controller to handle the base route
+# GET Routes ===========================================================#
 
-    Pylot will also automatically generate routes that resemble: '/controller/method/parameters'
-    For example if you had a products controller with an add method that took one parameter 
-    named id the automatically generated url would be '/products/add/<id>'
-    The automatically generated routes respond to all of the http verbs (GET, POST, PUT, PATCH, DELETE)
-"""
-routes['default_controller'] = 'Welcome'
-"""
-    You can add routes and specify their handlers as follows:
+# Users
+routes['default_controller'] = 'Users'
+routes['/'] = "Users#index"
+routes['/login'] = "Users#login"
+routes['/logout'] = "Users#logout"
+routes['/user/<user_id>'] = "Users#show_user"
+routes['/user/inbox'] = "Users#show_inbox"
 
-    routes['VERB']['/URL/GOES/HERE'] = 'Controller#method'
+# Events
+routes['/events'] = "Events#events"
+routes['/event/new'] = "Events#new"
+routes['/event/<event_id>'] = "Events#show_event"
+routes['/event/new/list/<events>'] = "Events#new_list"
+routes['/event/new/create/<event>'] = "Events#new_create"
+routes['/event/<event_id>/delete'] = "Events#delete"
 
-    Note the '#' symbol to specify the controller method to use.
-    Note the preceding slash in the url.
-    Note that the http verb must be specified in ALL CAPS.
-    
-    If the http verb is not provided pylot will assume that you want the 'GET' verb.
+# POST Routes ===========================================================#
 
-    You can also use route parameters by using the angled brackets like so:
-    routes['PUT']['/users/<int:id>'] = 'users#update'
+# Users
+routes['POST']['/login/process'] = "Users#login_process"
 
-    Note that the parameter can have a specified type (int, string, float, path). 
-    If the type is not specified it will default to string
-
-    Here is an example of the restful routes for users:
-
-    routes['GET']['/users'] = 'users#index'
-    routes['GET']['/users/new'] = 'users#new'
-    routes['POST']['/users'] = 'users#create'
-    routes['GET']['/users/<int:id>'] = 'users#show'
-    routes['GET']['/users/<int:id>/edit' = 'users#edit'
-    routes['PATCH']['/users/<int:id>'] = 'users#update'
-    routes['DELETE']['/users/<int:id>'] = 'users#destroy'
-"""
+# Events
+routes['POST']['/event/new/process'] = "Events#new_process"
+routes['POST']['/event/new/list/process'] = "Events#new_list_process"
+routes['POST']['/event/new/create/process'] = "Events#new_create_process"
