@@ -1,5 +1,6 @@
 from system.core.model import Model
 
+
 class User(Model):
     def __init__(self):
         super(User, self).__init__()
@@ -21,7 +22,8 @@ class User(Model):
         }
         user = self.db.get_one(query, data)
         if not user:
-            query = "INSERT INTO users (fb_user_id, first_name, last_name) VALUES (:fb_user_id, :first_name, :last_name)"
+            query = "INSERT INTO users (fb_user_id, first_name, last_name) VALUES (:fb_user_id, :first_name," \
+                    " :last_name)"
             data = {
                 "fb_user_id": user_data['id'],
                 "first_name": user_data['first_name'],
