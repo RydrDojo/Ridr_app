@@ -122,3 +122,9 @@ header {
 .new_user p {
     font-size: 1.6rem;
 }
+.copyright {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
