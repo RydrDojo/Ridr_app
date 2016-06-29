@@ -2,6 +2,7 @@ from system.core.controller import *
 from rauth import OAuth2Service
 from flask import redirect, request
 import urllib2
+import json
 
 app_id = "259154491127882"
 
@@ -72,7 +73,8 @@ class Users(Controller):
 
     def oauth_authorized(self):
         code = request.args.get('code')
-        json = urllib2.urlopen("https://graph.facebook.com/v2.3/oauth/access_token?client_id="+app_id
+        json_str = urllib2.urlopen("https://graph.facebook.com/v2.3/oauth/access_token?client_id="+app_id
                                  +"&redirect_uri=http://52.52.22.127/oauth-authorized/&client_secret"
                                   "=c5b9a2e1e25bfa25abc75a9cd2af450a&code="+code).read()
-        return self.load_view('index.html', json=json)
+        json_obj = json.loads(json_str)
+        return self.load_view('index.html', json=json_obj)
