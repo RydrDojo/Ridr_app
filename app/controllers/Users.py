@@ -1,6 +1,6 @@
 from system.core.controller import *
 from rauth import OAuth2Service
-from flask import redirect
+from flask import redirect, request
 
 app_id = "259154491127882"
 
@@ -31,7 +31,9 @@ class Users(Controller):
 
     # routes['/'] = "Users#index"
     def index(self):
-        session = facebook.get_auth_session(data={'code': url, 'redirect_uri': redirect_uri})
+        code = request.args.get('code')
+        session = facebook.get_auth_session(data={'code': code, 'redirect_uri': redirect_uri})
+
         return self.load_view('index.html', session=session)
 
     # routes['/login'] = "Users#login"
