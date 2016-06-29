@@ -34,7 +34,7 @@ class User(Model):
         return {'status': False}
 
     def update_user(self, form, user_id):
-        if form['new_user'] == 1:
+        if form['new_user'] == '1':
             query = "UPDATE users SET email = :email, username = :username WHERE fb_user_id = :fb_user_id"
             data = {
                 'email': form['email'],
