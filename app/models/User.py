@@ -17,7 +17,7 @@ class User(Model):
     def add_user(self, user_data):
         query = "SELECT * FROM users WHERE fb_user_id = :fb_user_id"
         data = {
-            "fb_user_id": user_data['fb_user_id']
+            "fb_user_id": user_data['id']
         }
         user = self.db.get_one(query, data)
         if not user:
