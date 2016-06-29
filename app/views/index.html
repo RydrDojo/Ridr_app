@@ -5,8 +5,8 @@
     <div class="home">
         {%if 'user' in session%}
             {% if 'new_user' in session %}
-                <h1>Hello, {{ session['user']['first_name'] }}! Thanks for signing up. We just need a little more
-                    info:</h1>
+                <h1>Hello, {{ session['user']['first_name'] }}! Thanks for signing up.</h1>
+                <h2>We just need a little more info:</h2>
                 <form action="/register/process">
                     <p>{{ session['user']['first_name'] }} {{ session['user']['last_name'] }}</p>
                     <p><input type="email" name="email" placeholder="Email" required></p>
