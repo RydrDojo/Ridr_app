@@ -78,7 +78,6 @@ class Users(Controller):
         token = token['access_token']
         fb_session = facebook.get_session(token)
 
-        fb_user = fb_session.get('/me?fields=id,first_name,last_name,email', params={'format': 'json'}).json()
-
-
-        return self.load_view('index.html',fb_session=fb_user)
+        session['fb_user'] = fb_session.get('/me?fields=id,first_name,last_name,email', params={'format':
+                                                                                                    'json'}).json()
+        return redirect('/')
