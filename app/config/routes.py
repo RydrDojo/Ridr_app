@@ -22,6 +22,8 @@ routes['/event/<event_id>/delete'] = "Events#delete"
 
 # POST Routes ===========================================================#
 
+# Users
+routes['POST']['/register/process'] = "Users#register_process"
 
 # Events
 routes['POST']['/event/new/process'] = "Events#new_process"

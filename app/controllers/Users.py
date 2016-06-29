@@ -44,9 +44,9 @@ class Users(Controller):
     # routes['/logout'] = "Users#logout"
     def logout(self):
         if 'user' in session:
-            session.clear()
-            session['user'] = False
             flash('You have successfully logged out', 'success')
+        session.clear()
+        session['user'] = False
         return redirect('/')
 
     # routes['/user/<user_id>'] = "Users#show_user"
@@ -87,4 +87,14 @@ class Users(Controller):
                 session['new_user'] = True
             # already registered
         session['user'] = register_data
+        return redirect('/')
+
+    def register_process(self):
+        user = self.models['User'].update_user(request.form, session['user']['id'])
+        if user['status']:
+            # they were updated
+            session['new_user'] = False
+            return redirect('/')
+        # they weren't updated
+        flash('There was a problem with your inputs, please try again')
         return redirect('/')

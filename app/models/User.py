@@ -32,3 +32,16 @@ class User(Model):
             self.db.query_db(query, data)
             return {'status': True}
         return {'status': False}
+
+    def update_user(self, form, user_id):
+        if form['new_user'] == 1:
+            query = "UPDATE users SET email = :email, username = :username WHERE fb_user_id = :fb_user_id"
+            data = {
+                'email': form['email'],
+                'username': form['username'],
+                'fb_user_id': user_id
+            }
+            status = self.db.query_db(query, data)
+            if status:
+                return {'status': True}
+            return {'status': False}
