@@ -1,17 +1,27 @@
 from system.core.controller import *
-from rauth.service import OAuth1Service
+from rauth import OAuth2Service
 from flask import redirect
 
-facebook = OAuth1Service(
+app_id = "259154491127882"
+
+facebook = OAuth2Service(
     name='facebook',
     base_url='https://graph.facebook.com/',
     # request_token_url=None,
     access_token_url='/oauth/access_token',
     authorize_url='https://www.facebook.com/dialog/oauth',
-    consumer_key='259154491127882',
-    consumer_secret='c5b9a2e1e25bfa25abc75a9cd2af450a',
+    client_id='259154491127882',
+    client_secret='c5b9a2e1e25bfa25abc75a9cd2af450a',
     # request_token_params={'scope': 'email'}
 )
+
+redirect_uri = 'https://www.facebook.com/connect/login_success.html'
+
+params = {'scope': 'read_stream',
+          'response_type': 'code',
+          'redirect_uri': redirect_uri}
+
+url = facebook.get_authorize_url(**params)
 
 class Users(Controller):
     def __init__(self, action):
@@ -57,8 +67,7 @@ class Users(Controller):
     def login_process(self):
         if 'user' in session:
             return redirect('/')
-        return facebook.authorize(
-            callback=self._app.url_for('oauth_authorized', next=request.args.get('next') or request.referrer or None))
+        return redirect("https://www.facebook.com/dialog/oauth?client_id="+app_id+"&redirect_uri="+redirect_uri)
 
     def oauth_authorized(self, resp):
         next_url = request.args.get('next') or self._app.url_for('index')
