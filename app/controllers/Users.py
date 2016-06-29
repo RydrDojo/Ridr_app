@@ -15,7 +15,7 @@ facebook = OAuth2Service(
     # request_token_params={'scope': 'email'}
 )
 
-redirect_uri = 'https://www.facebook.com/connect/login_success.html'
+redirect_uri = '/'
 
 params = {'scope': 'read_stream',
           'response_type': 'code',
@@ -67,6 +67,7 @@ class Users(Controller):
     def login_process(self):
         if 'user' in session:
             return redirect('/')
+        flash('You successfully logged in!','success')
         return redirect("https://www.facebook.com/dialog/oauth?client_id="+app_id+"&redirect_uri="+redirect_uri)
 
     # def oauth_authorized(self, resp):
