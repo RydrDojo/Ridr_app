@@ -31,7 +31,7 @@ class Users(Controller):
 
     # routes['/'] = "Users#index"
     def index(self):
-        return self.load_view('index.html', code=code)
+        return self.load_view('index.html')
 
     # routes['/login'] = "Users#login"
     def login(self):
