@@ -76,7 +76,7 @@ class Users(Controller):
                                   "=c5b9a2e1e25bfa25abc75a9cd2af450a&code="+code).read()
         token = json.loads(json_str)
         token = token['access_token']
-        user_info = urllib2.urlopen("graph.facebook.com/bgolub?fields=id,first_name,last_name,email&"+token)
+        user_info = urllib2.urlopen("https://graph.facebook.com/bgolub?fields=id,first_name,last_name,email&"+token)
         if user_info:
             session['fb_user'] = user_info
         return self.load_view('index.html')
