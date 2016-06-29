@@ -79,4 +79,4 @@ class Users(Controller):
         user_info = urllib2.urlopen("https://graph.facebook.com/bgolub?fields=id,first_name,last_name,email&"+token)
         if user_info:
             session['fb_user'] = user_info
-        return self.load_view('index.html')
+        return redirect('/')
