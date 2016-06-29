@@ -4,7 +4,7 @@
 {% block content %}
     <div class="home">
         {% if 'fb_session' in session %}
-            {{ session['fb_session'] }}
+            {{ session['fb_session']['id'] }}
         {% else %}
             You aren't logged in!
         {% endif %}

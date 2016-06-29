@@ -5,7 +5,7 @@ class User(Model):
         super(User, self).__init__()
 
     def get_user(self, user_id):
-        query = "SELECT * FROM users WHERE user_id = :user_id"
+        query = "SELECT * FROM users WHERE user_id = :user_id LIMIT 1"
         data = {
             "user_id": user_id
         }
@@ -15,7 +15,7 @@ class User(Model):
         return {'status': False}
 
     def add_user(self, user_data):
-        query = "SELECT * FROM users WHERE fb_user_id = :fb_user_id"
+        query = "SELECT * FROM users WHERE fb_user_id = :fb_user_id LIMIT 1"
         data = {
             "fb_user_id": user_data['id']
         }
