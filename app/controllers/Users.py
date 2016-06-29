@@ -77,6 +77,8 @@ class Users(Controller):
         token = json.loads(json_str)
         token = token['access_token']
         fb_session = facebook.get_session(token)
-
-        session['fb_session'] = fb_session.get('/me?fields=id,first_name,last_name', params={'format':'json'}).json()
+        register_data = fb_session.get('/me?fields=id,first_name,last_name', params={'format':'json'}).json()
+        if register_data:
+            self.models['User'].add_user(register_data)
+        session['user'] = register_data
         return redirect('/')
