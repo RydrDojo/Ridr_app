@@ -69,17 +69,17 @@ class Users(Controller):
             return redirect('/')
         return redirect("https://www.facebook.com/dialog/oauth?client_id="+app_id+"&redirect_uri="+redirect_uri)
 
-    def oauth_authorized(self, resp):
-        next_url = request.args.get('next') or self._app.url_for('index')
-        if resp is None:
-            flash('You denied the request to sign in.', 'error')
-            return redirect(next_url)
-
-        session['facebook_token'] = (
-            resp['oauth_token'],
-            resp['oauth_token_secret']
-        )
-        session['facebook_user'] = resp['screen_name']
-
-        flash("You signed in as %s" % resp['screen_name'])
-        return redirect(next_url)
+    # def oauth_authorized(self, resp):
+    #     next_url = request.args.get('next') or self._app.url_for('index')
+    #     if resp is None:
+    #         flash('You denied the request to sign in.', 'error')
+    #         return redirect(next_url)
+    #
+    #     session['facebook_token'] = (
+    #         resp['oauth_token'],
+    #         resp['oauth_token_secret']
+    #     )
+    #     session['facebook_user'] = resp['screen_name']
+    #
+    #     flash("You signed in as %s" % resp['screen_name'])
+    #     return redirect(next_url)
