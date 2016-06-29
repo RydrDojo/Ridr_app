@@ -43,7 +43,7 @@ h2 {
 }
 
 .home h2 {
-    color: #333;
+    color: #F37C20;
 }
 
 .home:not(.logged_user) .background_full_screen {
@@ -91,7 +91,7 @@ header {
 
 .top_menu a:hover {
     background-color: rgba(255,255,255,0.9);
-    color: #333;
+    color: #F37C20;
     transition: 0.3s all;
 }
 
