@@ -3,6 +3,7 @@
 {% block body_class %}home{% endblock %}
 {% block content %}
     <div class="home">
+        {{ session['user']['id'] }}
         {%if 'user' in session%}
             {% if 'new_user' in session %}
                 <h1>Hello, {{ session['user']['first_name'] }}! Thanks for signing up.</h1>

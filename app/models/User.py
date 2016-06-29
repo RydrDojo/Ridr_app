@@ -41,4 +41,11 @@ class User(Model):
             'fb_user_id': user_id
         }
         self.db.query_db(query, data)
-        return {'status': True}
+        query = "SELECT * FROM users WHERE email = :email"
+        data = {
+            'email': form['email']
+        }
+        user = self.db.query_db(query, data)
+        if user:
+            return {'status': True}
+        return {'status': False, 'error': "Did not save to database"}
