@@ -43,6 +43,9 @@ class User(Model):
             }
             self.db.query_db(query, data)
             query = "SELECT * FROM users WHERE email = :email"
+            data = {
+                'email': form['email']
+            }
             user = self.db.query_db(query, data)
             if user:
                 return {'status': True}
