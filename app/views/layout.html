@@ -25,15 +25,15 @@
     </script>
 </head>
 <body class="{% block body_class %}{% endblock %} {%if 'user' in session%}logged_user{%endif%}">
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <p class="{{ category }}">{{ message }}</p>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
     <div class="background_full_screen"></div>
     <div class="main_wrap">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <header>
             <div class="header container {% block header_class %}{% endblock %}">
                 <div class="row">
