@@ -41,7 +41,9 @@ class User(Model):
                 'username': form['username'],
                 'fb_user_id': user_id
             }
-            status = self.db.query_db(query, data)
-            if status:
+            self.db.query_db(query, data)
+            query = "SELECT * FROM users WHERE email = :email"
+            user = self.db.query_db(query, data)
+            if user:
                 return {'status': True}
             return {'status': False}
