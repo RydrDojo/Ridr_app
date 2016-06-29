@@ -15,7 +15,6 @@
                 version    : 'v2.6'
             });
         };
-        ​
         (function(d, s, id){
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) {return;}
@@ -24,42 +23,44 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="{% block body_class %}{% endblock %} {%if 'user' in session%}logged_user{%endif%}">
-    <header>
-        <div class="header container {% block header_class %}{% endblock %}">
-        <div class="image">
-            <img class="logo" src="static/images/RIDR.png" height="100px" width="350px">
-        </div>
-            <!-- <h1 class="site_title">
-            </h1> -->
-            <div class="top_menu">
-                <ul>
-                    {%if 'user' not in session%}
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Sign Up</a></li>
-                    {%else%}
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/rides">Rides</a></li>
-                        <li><a href="/inbox">Inbox</a></li>
-                        <li><a href="/account">Account</a></li>
-                        <li><a href="/logout">Logout</a></li>
-                    {%endif%}
-                </ul>
+    <div class="background_full_screen"></div>
+    <div class="main_wrap">
+        <header>
+            <div class="header container {% block header_class %}{% endblock %}">
+                <div class="row">
+                    <div class="site_logo col-md-4">
+                        <img class="logo" src="static/images/ridr_transparent-1.png">
+                    </div>
+                    <div class="top_menu col-md-8">
+                        <ul>
+                            {%if 'user' not in session%}
+                                <li><a href="/login">Login</a></li>
+                                <li><a href="/login">Sign Up</a></li>
+                            {%else%}
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/rides">Rides</a></li>
+                                <li><a href="/inbox">Inbox</a></li>
+                                <li><a href="/account">Account</a></li>
+                                <li><a href="/logout">Logout</a></li>
+                            {%endif%}
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-    </header>
-    <section>
-        <div class="content container {% block content_class %}{% endblock %}">
-            {% block content %}{% endblock %}
-        </div>
-    </section>
-    <footer>
-        <div class="copyright">
-            &copy 2016 Ridr
-        </div>
-    </footer>
+        </header>
+        <section>
+            <div class="content container {% block content_class %}{% endblock %}">
+                {% block content %}{% endblock %}
+            </div>
+        </section>
+        <footer>
+            <div class="copyright">
+                &copy 2016 Ridr
+            </div>
+        </footer>
+    </div>
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
