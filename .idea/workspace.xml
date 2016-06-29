@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b04e2eab-a19c-4b18-b855-426037330b2b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User.py" afterPath="$PROJECT_DIR$/app/models/User.py" />
-    </list>
+    <list default="true" id="b04e2eab-a19c-4b18-b855-426037330b2b" name="Default" comment="" />
     <ignored path="rydr.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
