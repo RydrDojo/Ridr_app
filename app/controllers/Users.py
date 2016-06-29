@@ -4,8 +4,6 @@ from flask import redirect, request
 import urllib2
 import json
 
-app_id = "259154491127882"
-
 facebook = OAuth2Service(
     name='facebook',
     base_url='https://graph.facebook.com/',
@@ -15,6 +13,7 @@ facebook = OAuth2Service(
     client_secret='c5b9a2e1e25bfa25abc75a9cd2af450a',
 )
 
+app_id = "259154491127882"
 redirect_uri = 'http://52.52.22.127/'
 
 params = {
@@ -68,7 +67,6 @@ class Users(Controller):
     def login_process(self):
         if 'user' in session:
             return redirect('/')
-        flash('You successfully logged in!','success')
         return redirect("https://www.facebook.com/dialog/oauth?client_id="+app_id+"&redirect_uri=http://52.52.22.127/oauth-authorized/")
 
     def oauth_authorized(self):
@@ -76,5 +74,9 @@ class Users(Controller):
         json_str = urllib2.urlopen("https://graph.facebook.com/v2.3/oauth/access_token?client_id="+app_id
                                  +"&redirect_uri=http://52.52.22.127/oauth-authorized/&client_secret"
                                   "=c5b9a2e1e25bfa25abc75a9cd2af450a&code="+code).read()
-        json_obj = json.loads(json_str)
-        return self.load_view('index.html', json=json_obj)
+        token = json.loads(json_str)
+        token = token['access_token']
+        user_info = urllib2.urlopen("graph.facebook.com/bgolub?fields=id,first_name,last_name,email&"+token)
+        if user_info:
+            session['fb_user'] = user_info
+        return self.load_view('index.html')

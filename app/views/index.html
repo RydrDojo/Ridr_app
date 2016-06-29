@@ -3,8 +3,8 @@
 {% block body_class %}home{% endblock %}
 {% block content %}
     <div class="home">
-        {% if json %}
-            {{ json }}
+        {% if 'fb_user' in session %}
+            {{ session['fb_user'] }}
         {% else %}
             You aren't logged in!
         {% endif %}
