@@ -71,5 +71,4 @@ class Users(Controller):
 
     def oauth_authorized(self):
         code = request.args.get('code')
-        return redirect("https://graph.facebook.com/v2.3/oauth/access_token?client_id="+app_id+"&redirect_uri=http"
-                        "://52.52.22.127/&client_secret=c5b9a2e1e25bfa25abc75a9cd2af450a&code="+code)
+        return redirect("https://graph.facebook.com/v2.3/oauth/access_token?client_id="+app_id+"&redirect_uri="+redirect_uri+"&client_secret=c5b9a2e1e25bfa25abc75a9cd2af450a&code="+code)
