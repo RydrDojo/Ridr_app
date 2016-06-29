@@ -9,8 +9,8 @@
                 <h2>We just need a little more info:</h2>
                 <form action="/register/process">
                     <p>{{ session['user']['first_name'] }} {{ session['user']['last_name'] }}</p>
-                    <p><input type="email" name="email" placeholder="Email" required></p>
-                    <p><input type="text" name="username" placeholder="Username" required></p>
+                    <p><input class="form-control" type="email" name="email" placeholder="Email" required></p>
+                    <p><input class="form-control" type="text" name="username" placeholder="Username" required></p>
                 </form>
             {% endif %}
 
