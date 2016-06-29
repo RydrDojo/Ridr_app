@@ -23,7 +23,7 @@ class User(Model):
         if not user:
             query = "INSERT INTO users (fb_user_id, first_name, last_name) VALUES (:fb_user_id, :first_name, :last_name)"
             data = {
-                "fb_user_id": user_data['fb_user_id'],
+                "fb_user_id": user_data['id'],
                 "first_name": user_data['first_name'],
                 "last_name": user_data['last_name']
             }

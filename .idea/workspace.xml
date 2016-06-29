@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b04e2eab-a19c-4b18-b855-426037330b2b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Users.py" afterPath="$PROJECT_DIR$/app/controllers/Users.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/User.py" afterPath="$PROJECT_DIR$/app/models/User.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/index.html" afterPath="$PROJECT_DIR$/app/views/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layout.html" afterPath="$PROJECT_DIR$/app/views/layout.html" />
     </list>
     <ignored path="rydr.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Users.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Users.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/Users.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="83" column="23" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
+            <state relative-caret-position="210">
+              <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -90,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="User.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/User.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+            <state relative-caret-position="375">
+              <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -142,10 +139,10 @@
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/app/views/login.html" />
         <option value="$PROJECT_DIR$/app/config/routes.py" />
-        <option value="$PROJECT_DIR$/app/models/User.py" />
         <option value="$PROJECT_DIR$/app/views/index.html" />
         <option value="$PROJECT_DIR$/app/views/layout.html" />
         <option value="$PROJECT_DIR$/app/controllers/Users.py" />
+        <option value="$PROJECT_DIR$/app/models/User.py" />
       </list>
     </option>
   </component>
@@ -755,14 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -781,11 +770,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Users.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="83" column="23" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
+        <state relative-caret-position="210">
+          <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/User.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
