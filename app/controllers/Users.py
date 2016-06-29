@@ -31,10 +31,6 @@ class Users(Controller):
 
     # routes['/'] = "Users#index"
     def index(self):
-        code = request.args.get('code')
-
-        # session = facebook.get_auth_session(data={'code': code, 'redirect_uri': redirect_uri})
-
         return self.load_view('index.html', code=code)
 
     # routes['/login'] = "Users#login"
@@ -71,19 +67,9 @@ class Users(Controller):
         if 'user' in session:
             return redirect('/')
         flash('You successfully logged in!','success')
-        return redirect("https://www.facebook.com/dialog/oauth?client_id="+app_id+"&redirect_uri="+redirect_uri)
+        return redirect("https://www.facebook.com/dialog/oauth?client_id="+app_id+"&redirect_uri=http://52.52.22.127/oauth-authorized/")
 
-    # def oauth_authorized(self, resp):
-    #     next_url = request.args.get('next') or self._app.url_for('index')
-    #     if resp is None:
-    #         flash('You denied the request to sign in.', 'error')
-    #         return redirect(next_url)
-    #
-    #     session['facebook_token'] = (
-    #         resp['oauth_token'],
-    #         resp['oauth_token_secret']
-    #     )
-    #     session['facebook_user'] = resp['screen_name']
-    #
-    #     flash("You signed in as %s" % resp['screen_name'])
-    #     return redirect(next_url)
+    def oauth_authorized(self):
+        code = request.args.get('code')
+        return redirect("https://graph.facebook.com/v2.3/oauth/access_token?client_id="+app_id+"&redirect_uri=http"
+                        "://52.52.22.127/&client_secret=c5b9a2e1e25bfa25abc75a9cd2af450a&code="+code)

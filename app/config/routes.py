@@ -9,7 +9,8 @@ routes['/login'] = "Users#login"
 routes['/logout'] = "Users#logout"
 routes['/user/<user_id>'] = "Users#show_user"
 routes['/user/inbox'] = "Users#show_inbox"
-routes['/oauth-authorized/<resp>'] = "Users#oauth_authorized"
+routes['/oauth-authorized'] = "Users#oauth_authorized"
+routes['/login/process'] = "Users#login_process"
 
 # Events
 routes['/events'] = "Events#events"
@@ -21,8 +22,6 @@ routes['/event/<event_id>/delete'] = "Events#delete"
 
 # POST Routes ===========================================================#
 
-# Users
-routes['/login/process'] = "Users#login_process"
 
 # Events
 routes['POST']['/event/new/process'] = "Events#new_process"
