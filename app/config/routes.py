@@ -9,7 +9,7 @@ routes['/login'] = "Users#login"
 routes['/logout'] = "Users#logout"
 routes['/user/<user_id>'] = "Users#show_user"
 routes['/user/inbox'] = "Users#show_inbox"
-routes['/oauth-authorized'] = "Users#oauth_authorized"
+routes['/oauth-authorized/'] = "Users#oauth_authorized"
 routes['/login/process'] = "Users#login_process"
 
 # Events
