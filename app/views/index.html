@@ -8,7 +8,6 @@
                 <h1>Hello, {{ session['user']['first_name'] }}! Thanks for signing up.</h1>
                 <h2>We just need a little more info:</h2>
                 <form class="new_user" action="/register/process" method="POST">
-                    <input type="hidden" name="new_user" value="true">
                     <p><input class="form-control" type="email" name="email" placeholder="Email" required></p>
                     <p><input class="form-control" type="text" name="username" placeholder="Username" required></p>
                     <p><button type="submit">Continue</button></p>

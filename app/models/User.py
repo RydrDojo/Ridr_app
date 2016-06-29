@@ -33,20 +33,19 @@ class User(Model):
             return {'status': True}
         return {'status': False}
 
-    def update_user(self, form, user_id):
-        if form['new_user'] == 'true':
-            query = "UPDATE users SET email = :email, username = :username WHERE fb_user_id = :fb_user_id"
-            data = {
-                'email': form['email'],
-                'username': form['username'],
-                'fb_user_id': user_id
-            }
-            self.db.query_db(query, data)
-            query = "SELECT * FROM users WHERE email = :email"
-            data = {
-                'email': form['email']
-            }
-            user = self.db.query_db(query, data)
-            if user:
-                return {'status': True}
+    def register(self, form, user_id):
+        query = "UPDATE users SET email = :email, username = :username WHERE fb_user_id = :fb_user_id"
+        data = {
+            'email': form['email'],
+            'username': form['username'],
+            'fb_user_id': user_id
+        }
+        self.db.query_db(query, data)
+        query = "SELECT * FROM users WHERE email = :email"
+        data = {
+            'email': form['email']
+        }
+        user = self.db.query_db(query, data)
+        if user:
+            return {'status': True}
         return {'status': False}

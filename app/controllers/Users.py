@@ -89,7 +89,7 @@ class Users(Controller):
         return redirect('/')
 
     def register_process(self):
-        user = self.models['User'].update_user(request.form, session['user']['id'])
+        user = self.models['User'].register(request.form, session['user']['id'])
         if user['status']:
             # they were updated
             session['new_user'] = False
