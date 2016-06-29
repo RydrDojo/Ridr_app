@@ -46,7 +46,6 @@ class Users(Controller):
         if 'user' in session:
             flash('You have successfully logged out', 'success')
         session.clear()
-        session['user'] = False
         return redirect('/')
 
     # routes['/user/<user_id>'] = "Users#show_user"
