@@ -49,4 +49,4 @@ class User(Model):
             user = self.db.query_db(query, data)
             if user:
                 return {'status': True}
-            return {'status': False}
+        return {'status': False}
