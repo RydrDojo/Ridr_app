@@ -1,5 +1,5 @@
 from system.core.controller import *
-from rauth import OAuth2Service, service
+from rauth import OAuth2Service
 from flask import redirect
 
 app_id = "259154491127882"
@@ -15,9 +15,11 @@ facebook = OAuth2Service(
 
 redirect_uri = 'http://52.52.22.127/'
 
-params = {'scope': 'read_stream',
-          'response_type': 'code',
-          'redirect_uri': redirect_uri}
+params = {
+    'scope': 'read_stream',
+    'response_type': 'code',
+    'redirect_uri': redirect_uri
+}
 
 url = facebook.get_authorize_url(**params)
 
@@ -29,7 +31,7 @@ class Users(Controller):
 
     # routes['/'] = "Users#index"
     def index(self):
-        session = facebook.get_auth_session(data={'code': url, 'redirect_uri': redirect_uri})
+        session = facebook.get_auth_session(data={'code': url['code'], 'redirect_uri': redirect_uri})
         return self.load_view('index.html', session=session)
 
     # routes['/login'] = "Users#login"
