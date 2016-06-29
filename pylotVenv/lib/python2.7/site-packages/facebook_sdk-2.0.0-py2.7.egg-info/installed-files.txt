@@ -1,0 +1,9 @@
+../facebook/__init__.py
+../facebook/version.py
+../facebook/__init__.pyc
+../facebook/version.pyc
+dependency_links.txt
+PKG-INFO
+requires.txt
+SOURCES.txt
+top_level.txt
