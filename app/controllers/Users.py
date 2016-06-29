@@ -1,5 +1,5 @@
 from system.core.controller import *
-from rauth import OAuth2Service
+from rauth import OAuth2Service, service
 from flask import redirect
 
 app_id = "259154491127882"
@@ -7,15 +7,13 @@ app_id = "259154491127882"
 facebook = OAuth2Service(
     name='facebook',
     base_url='https://graph.facebook.com/',
-    # request_token_url=None,
     access_token_url='/oauth/access_token',
     authorize_url='https://www.facebook.com/dialog/oauth',
     client_id='259154491127882',
     client_secret='c5b9a2e1e25bfa25abc75a9cd2af450a',
-    # request_token_params={'scope': 'email'}
 )
 
-redirect_uri = '/'
+redirect_uri = 'http://52.52.22.127/'
 
 params = {'scope': 'read_stream',
           'response_type': 'code',
@@ -31,7 +29,7 @@ class Users(Controller):
 
     # routes['/'] = "Users#index"
     def index(self):
-        # check if user is logged in
+        print url
         return self.load_view('index.html')
 
     # routes['/login'] = "Users#login"

@@ -3,33 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
-<<<<<<< HEAD
-    <link rel="stylesheet" href="{{ url_for('static', filename="css/bootstrap.min.css") }}" >
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" >
     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/form-elements.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' )}}">
-    <script src="{{ url_for('static',filename='js/jquery-2.2.3.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='css/bootstrap.min.js')}}"></script>
     <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '259154491127882',
-      xfbml      : true,
-      version    : 'v2.6'
-    });
-  };
-​
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-=======
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '259154491127882',
+                xfbml      : true,
+                version    : 'v2.6'
+            });
+        };
+        ​
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
->>>>>>> master
 </head>
 <body class="{% block body_class %}{% endblock %} {%if 'user' in session%}logged_user{%endif%} logged_user">
     <header>
@@ -41,16 +36,16 @@
             </h1> -->
             <div class="top_menu">
                 <ul>
-                {%if 'user' not in session%}
-                    <button><li><a href="/login">Login</a></li></button>
-                    <button><li><a href="/register">Sign Up</a></li></button>
-                {%else%}
-                    <button><li><a href="/">Home</a></li></button>
-                    <button><li><a href="/rides">Rides</a></li></button>
-                    <button><li><a href="/inbox">Inbox</a></li></button>
-                    <button><li><a href="/account">Account</a></li></button>
-                    <button><li><a href="/logout">Logout</a></li></button>
-                {%endif%}
+                    {%if 'user' not in session%}
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Sign Up</a></li>
+                    {%else%}
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/rides">Rides</a></li>
+                        <li><a href="/inbox">Inbox</a></li>
+                        <li><a href="/account">Account</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    {%endif%}
                 </ul>
             </div>
         </div>
@@ -66,6 +61,7 @@
         </div>
     </footer>
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 </html>
