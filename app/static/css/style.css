@@ -38,6 +38,10 @@ h1 {
     font-family: "Dosis", sans-serif;
 }
 
+h2 {
+    font-size: 2.4rem;
+}
+
 .home:not(.logged_user) .background_full_screen {
 	background-image: url("../images/roadtrip.jpg");
 }
@@ -99,12 +103,18 @@ header {
     color: #333;
     padding: 40px;
 }
+
 .fa-facebook-official{
 	font-size: 20rem;
 	margin-left: 300px;
 	color: blue;
 }
+
 .event {
     display: inline-block;
     margin-left: 100px;
+}
+
+.new_user p {
+    font-size: 1.6rem;
 }
