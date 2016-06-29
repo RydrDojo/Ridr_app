@@ -3,8 +3,8 @@
 {% block body_class %}home{% endblock %}
 {% block content %}
     <div class="home">
-        {% if session %}
-            {{ session }}
+        {% if code %}
+            {{ code }}
         {% else %}
             You aren't logged in!
         {% endif %}
