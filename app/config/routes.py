@@ -9,6 +9,7 @@ routes['/login'] = "Users#login"
 routes['/logout'] = "Users#logout"
 routes['/user/<user_id>'] = "Users#show_user"
 routes['/user/inbox'] = "Users#show_inbox"
+routes['/oauth-authorized/<resp>'] = "Users#oauth_authorized"
 
 # Events
 routes['/events'] = "Events#events"

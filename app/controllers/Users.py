@@ -1,5 +1,17 @@
 from system.core.controller import *
-# import facebook
+from rauth.service import OAuth1Service
+from flask import redirect
+
+facebook = OAuth1Service(
+    name='facebook',
+    base_url='https://graph.facebook.com/',
+    # request_token_url=None,
+    access_token_url='/oauth/access_token',
+    authorize_url='https://www.facebook.com/dialog/oauth',
+    consumer_key='259154491127882',
+    consumer_secret='c5b9a2e1e25bfa25abc75a9cd2af450a',
+    # request_token_params={'scope': 'email'}
+)
 
 class Users(Controller):
     def __init__(self, action):
@@ -9,6 +21,7 @@ class Users(Controller):
 
     # routes['/'] = "Users#index"
     def index(self):
+        # check if user is logged in
         return self.load_view('index.html')
 
     # routes['/login'] = "Users#login"
@@ -44,5 +57,20 @@ class Users(Controller):
     def login_process(self):
         if 'user' in session:
             return redirect('/')
+        return facebook.authorize(
+            callback=self._app.url_for('oauth_authorized', next=request.args.get('next') or request.referrer or None))
 
-        # result = get_user_from_cookie
+    def oauth_authorized(self, resp):
+        next_url = request.args.get('next') or self._app.url_for('index')
+        if resp is None:
+            flash('You denied the request to sign in.', 'error')
+            return redirect(next_url)
+
+        session['facebook_token'] = (
+            resp['oauth_token'],
+            resp['oauth_token_secret']
+        )
+        session['facebook_user'] = resp['screen_name']
+
+        flash("You signed in as %s" % resp['screen_name'])
+        return redirect(next_url)
