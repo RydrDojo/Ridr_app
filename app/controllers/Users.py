@@ -72,11 +72,12 @@ class Users(Controller):
     def oauth_authorized(self):
         code = request.args.get('code')
         json_str = urllib2.urlopen("https://graph.facebook.com/v2.3/oauth/access_token?client_id="+app_id
-                                 +"&redirect_uri=http://52.52.22.127/oauth-authorized/&client_secret"
-                                  "=c5b9a2e1e25bfa25abc75a9cd2af450a&code="+code).read()
+                                   +"&redirect_uri=http://52.52.22.127/oauth-authorized/&client_secret"
+                                    "=c5b9a2e1e25bfa25abc75a9cd2af450a&code="+code).read()
         token = json.loads(json_str)
         token = token['access_token']
-        user_info = urllib2.urlopen("graph.facebook.com/bgolub?fields=id,first_name,last_name,email")
-        if user_info:
-            session['fb_user'] = user_info
+        session['fb_session'] = facebook.get_session(token)
+
+
+
         return redirect('/')
