@@ -76,8 +76,8 @@ class Users(Controller):
                                     "=c5b9a2e1e25bfa25abc75a9cd2af450a&code="+code).read()
         token = json.loads(json_str)
         token = token['access_token']
-        session['fb_session'] = json.loads(facebook.get_session(token))
+        fb_session = facebook.get_session(token)
 
 
 
-        return redirect('/')
+        return self.load_view('index.html',fb_session=fb_session)
