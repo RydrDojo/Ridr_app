@@ -32,9 +32,10 @@ class Users(Controller):
     # routes['/'] = "Users#index"
     def index(self):
         code = request.args.get('code')
-        session = facebook.get_auth_session(data={'code': code, 'redirect_uri': redirect_uri})
 
-        return self.load_view('index.html', session=session)
+        # session = facebook.get_auth_session(data={'code': code, 'redirect_uri': redirect_uri})
+
+        return self.load_view('index.html', session=code)
 
     # routes['/login'] = "Users#login"
     def login(self):
