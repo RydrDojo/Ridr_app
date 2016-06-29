@@ -16,11 +16,11 @@ class User(Model):
         return {'status': False}
 
     def add_user(self, user_data):
-        query = "SELECT * FROM users WHERE fb_user_id = :fb_user_id LIMIT 1"
+        query = "SELECT * FROM users WHERE fb_user_id = :fb_user_id"
         data = {
             "fb_user_id": user_data['id']
         }
-        user = self.db.get_one(query, data)
+        user = self.db.query_db(query, data)
         if not user:
             query = "INSERT INTO users (fb_user_id, first_name, last_name) VALUES (:fb_user_id, :first_name," \
                     " :last_name)"
