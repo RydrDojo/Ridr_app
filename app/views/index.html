@@ -5,6 +5,8 @@
     <div class="home">
         {% if session %}
             {{ session }}
+        {% else %}
+            You aren't logged in!
         {% endif %}
         {%if 'user' in session%}
 
