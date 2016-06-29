@@ -42,6 +42,10 @@ h2 {
     font-size: 2.4rem;
 }
 
+.home h2 {
+    color: #333;
+}
+
 .home:not(.logged_user) .background_full_screen {
 	background-image: url("../images/roadtrip.jpg");
 }
