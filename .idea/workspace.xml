@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b04e2eab-a19c-4b18-b855-426037330b2b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/events.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/new.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/database.py" afterPath="$PROJECT_DIR$/app/config/database.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routes.py" afterPath="$PROJECT_DIR$/app/config/routes.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Users.py" afterPath="$PROJECT_DIR$/app/controllers/Users.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/css/form-elements.css" afterPath="$PROJECT_DIR$/app/static/css/form-elements.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/css/style.css" afterPath="$PROJECT_DIR$/app/static/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/index.html" afterPath="$PROJECT_DIR$/app/views/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layout.html" afterPath="$PROJECT_DIR$/app/views/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/login.html" afterPath="$PROJECT_DIR$/app/views/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manage.py" afterPath="$PROJECT_DIR$/manage.py" />
-    </list>
+    <list default="true" id="b04e2eab-a19c-4b18-b855-426037330b2b" name="Default" comment="" />
     <ignored path="rydr.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,7 +44,7 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
+            <state relative-caret-position="3270">
               <caret line="239" column="22" selection-start-line="239" selection-start-column="22" selection-end-line="239" selection-end-column="22" />
               <folding />
             </state>
@@ -67,8 +54,8 @@
       <file leaf-file-name="new.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+            <state relative-caret-position="450">
+              <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
               <folding>
                 <element signature="n#style#0;n#p#4;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -810,7 +797,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
+        <state relative-caret-position="3270">
           <caret line="239" column="22" selection-start-line="239" selection-start-column="22" selection-end-line="239" selection-end-column="22" />
           <folding />
         </state>
@@ -818,8 +805,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+        <state relative-caret-position="450">
+          <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
           <folding>
             <element signature="n#style#0;n#p#4;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>

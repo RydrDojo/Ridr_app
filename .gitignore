@@ -5,3 +5,4 @@ venv/*
 pylotVenv/*
 __pycache__/*
 .idea/*
+app/config/database.py*
