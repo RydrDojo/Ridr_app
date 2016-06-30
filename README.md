@@ -1,1 +1,0 @@
-# Ridr_app
