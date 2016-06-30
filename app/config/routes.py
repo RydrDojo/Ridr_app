@@ -13,7 +13,7 @@ routes['/oauth-authorized/'] = "Users#oauth_authorized"
 routes['/login/process'] = "Users#login_process"
 
 # Events
-routes['/events'] = "Events#events"
+routes['/events'] = "Events#index"
 routes['/event/new'] = "Events#new"
 routes['/event/<event_id>'] = "Events#show_event"
 routes['/event/new/list/<events>'] = "Events#new_list"

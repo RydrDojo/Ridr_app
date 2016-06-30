@@ -2,8 +2,10 @@
 {% block title %}Ridr | Login{% endblock %}
 {% block body_class %}login{% endblock %}
 {% block content %}
-<div class="login">
-	<i class="fa fa-facebook-official" aria-hidden="true"></i>
-	<a href="/login/process"><button>Login with Facebook</button></a>
+<div class="login_container">
+    <h1>Login & Signup</h1>
+    <p>Currently Ridr uses only Facebook login. Please use your Facebook account to log in below.</p>
+	<a href="/login/process"><img src="{{ url_for('static', filename='images/facebook.png') }}"
+                                               alt="facebook login"></a>
 </div>
 {% endblock %}

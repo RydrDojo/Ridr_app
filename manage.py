@@ -12,8 +12,7 @@ app = initialize_app()
 app.config.update(
     FACEBOOK_CONSUMER_KEY='259154491127882',
     FACEBOOK_CONSUMER_SECRET='c5b9a2e1e25bfa25abc75a9cd2af450a',
-
-    SECRET_KEY='9as8d18g3jksaf791odoshdakjsdadg19u',
+    SECRET_KEY='9as8d18g3jksaf791odoshdakjsdag19u',
     DEBUG=True
 )
 

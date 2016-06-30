@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}Ridr | Rides{% endblock %}
+{% block body_class %}rides{% endblock %}
+{% block content %}
+    <h1>Rides</h1>
+    {% if events %}
+    {% endif %}
+    <h3>Latest Rides</h3>
+    <div class="rides">
+        {% if events %}
+        {% else %}
+            <p>
+                Whoa... no one has added any rides yet. That means you're the first! Let's <a href="/event/new">create
+                a ride!</a>
+            </p>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/form-elements.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' )}}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <script>
         window.fbAsyncInit = function() {
             FB.init({
@@ -37,17 +38,19 @@
         <header>
             <div class="header container {% block header_class %}{% endblock %}">
                 <div class="row">
-                    <div class="site_logo col-md-4">
-                        <img class="logo" src="static/images/ridr_transparent-1.png">
+                    <div class="site_logo col-md-3">
+                        <a
+                                href="/"><img class="logo"
+                                              src="{{ url_for('static', filename='images/ridr_transparent-1.png') }}"></a>
                     </div>
-                    <div class="top_menu col-md-8">
+                    <div class="top_menu col-md-9">
                         <ul>
                             {%if 'user' not in session%}
                                 <li><a href="/login">Login</a></li>
                                 <li><a href="/login">Sign Up</a></li>
                             {%else%}
                                 <li><a href="/">Home</a></li>
-                                <li><a href="/rides">Rides</a></li>
+                                <li><a href="/events">Rides</a></li>
                                 <li><a href="/inbox">Inbox</a></li>
                                 <li><a href="/account">Account</a></li>
                                 <li><a href="/logout">Logout</a></li>
@@ -68,7 +71,6 @@
             &copy 2016 Ridr
         </div>
     </footer>
-    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
