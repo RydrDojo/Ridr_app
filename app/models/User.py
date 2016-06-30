@@ -32,13 +32,12 @@ class User(Model):
         }
         user = self.db.query_db(query, data)
         if not user:
-            query = "INSERT INTO users (fb_user_id, first_name, last_name, email) VALUES (:fb_user_id, :first_name," \
-                    " :last_name, :email)"
+            query = "INSERT INTO users (fb_user_id, first_name, last_name) VALUES (:fb_user_id, :first_name," \
+                    " :last_name)"
             data = {
                 "fb_user_id": user_data['id'],
                 "first_name": user_data['first_name'],
-                "last_name": user_data['last_name'],
-                "email": user_data['email']
+                "last_name": user_data['last_name']
             }
             self.db.query_db(query, data)
             return {'status': True}
