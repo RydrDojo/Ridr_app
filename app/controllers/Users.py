@@ -76,13 +76,12 @@ class Users(Controller):
     def login_process(self):
         if 'user' in session:
             return redirect('/')
-        return redirect("https://www.facebook.com/dialog/oauth?client_id="+app_id+"&redirect_uri=http://localhost"
-                                                                                  ":5000/oauth-authorized/")
+        return redirect("https://www.facebook.com/dialog/oauth?client_id="+app_id+"&redirect_uri=http://carmarider.com/oauth-authorized/")
 
     def oauth_authorized(self):
         code = request.args.get('code')
         json_str = urllib2.urlopen("https://graph.facebook.com/v2.3/oauth/access_token?client_id=" +
-                                   app_id + "&redirect_uri=http://localhost:5000/oauth-authorized/&client_secret"
+                                   app_id + "&redirect_uri=http://carmarider.com/oauth-authorized/&client_secret"
                                     "=c5b9a2e1e25bfa25abc75a9cd2af450a&code=" + code).read()
         token = json.loads(json_str)
         token = token['access_token']
