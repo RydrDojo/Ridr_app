@@ -32,7 +32,7 @@ p {
     top: -10px;
     left: -20px;
     width: 110%;
-    height: 125%;
+    height: 115%;
     z-index: 1;
     filter: blur(3px);
 }
@@ -64,8 +64,23 @@ h2 {
     color: #F37C20;
 }
 
+.home .background_full_screen {
+	background-image: url("../images/roadtrip3.jpeg");
+	background-size: cover;
+	filter: blur(4px);
+	background-position: bottom center;
+}
+
 .home:not(.logged_user) .background_full_screen {
 	background-image: url("../images/roadtrip.jpg");
+	background-size: cover;
+}
+
+.rides .background_full_screen {
+	background-image: url("../images/city.jpg");
+	background-size: cover;
+	filter: blur(2px);
+	background-position: bottom center;
 }
 
 .login:not(.logged_user) .background_full_screen {
@@ -159,11 +174,16 @@ section {
     left: 0;
 }
 
-.home_box,
-.rides .rides {
+.home_box {
     padding: 30px;
     background-color: #ddd;
     text-align: center;
+}
+
+.rides .rides .ride {
+    padding: 20px;
+    background-color: #ddd;
+    text-align: left;
 }
 
 .home h3,
@@ -172,9 +192,15 @@ section {
     padding: 10px 30px;
     font-size: 2rem;
     text-transform: uppercase;
-    background-color: #333;
+    background-color: rgba(0,0,0,0.5);
     color: white;
     margin-top: 30px;
+}
+
+.rides h3 {
+    font-size: 2rem;
+    font-family: "Raleway", sans-serif;
+    letter-spacing: 0.6px;
 }
 
 .profile_pic {
@@ -249,9 +275,8 @@ section {
 }
 
 .new_ride_button {
-    margin: 0;
-    margin-left: 100px;
-    margin-top: 40px;
+    margin: 40px auto;
+    width: 100%;
 }
 
 .login_container {
@@ -277,14 +302,33 @@ section {
 
 .map {
     background-repeat: no-repeat;
+    background-position: top center;
+    margin-top: 22px;
+}
+
+.map iframe {
+    height: 528px;
 }
 
 .new_ride_container input,
 .home input {
-    width: 600px;
+    width: 100%;
     margin-bottom: 10px;
 }
 
 .new_user {
     text-align: center;
+}
+
+.route p {
+    margin-top: 23px;
+}
+
+.rides .date_time {
+    float: right;
+    font-size: 2rem;
+}
+
+.home h1 {
+  color: white;
 }

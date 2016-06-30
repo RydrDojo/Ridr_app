@@ -2,12 +2,17 @@
 {% block title %}Ridr | Rides{% endblock %}
 {% block body_class %}rides{% endblock %}
 {% block content %}
-    <h1>Rides</h1>
-    {% if events %}
-    {% endif %}
-    <h3>Latest Rides</h3>
+    <h1>Latest Rides</h1>
     <div class="rides">
         {% if events %}
+            {% for event in events %}
+                <h3>{{ event.origin }} <small>to</small> {{ event.destination }} <span class="date_time">Leaving: {{
+                    event.ride_date
+                    }} {{ event.ride_time }}</span></h3>
+                <div class="ride">
+                    <div>{{ event.username }}</div>
+                </div>
+            {% endfor %}
         {% else %}
             <p>
                 Whoa... no one has added any rides yet. That means you're the first! Let's <a href="/event/new">create

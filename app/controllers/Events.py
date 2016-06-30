@@ -1,4 +1,5 @@
 from system.core.controller import *
+from time import strftime
 
 class Events(Controller):
     def __init__(self, action):
@@ -8,7 +9,12 @@ class Events(Controller):
 
     # routes['/events'] = "Events#index"
     def index(self):
-        return self.load_view('events.html')
+        events = self.models['Event'].get_events()
+        events = events['events']
+        if events:
+            for event in events:
+                event['ride_date'] = event['ride_date'].strftime("%x")
+        return self.load_view('events.html', events=events)
 
     # routes['/event/<event_id>'] = "Events#show_event"
     def show_event(self, event_id):
@@ -37,8 +43,13 @@ class Events(Controller):
     # routes['POST']['/event/new/process'] = "Events#new_process"
     def new_process(self):
         event = self.models['Event'].add_event(request.form)
-
-        return redirect('/event')
+        if event['status']:
+            # event doesn't yet exist
+            event = self.models['Event'].add_event_process(request.form, session['user']['id'], session['user'][
+                'user_info']['user_id'])
+            return redirect('/event/'+str(event['event']['event_id']))
+        # event exists
+        return redirect('/event/'+str(event['event']['event_id']))
 
     # routes['POST']['/event/new/list/process'] = "Events#new_list_process"
 

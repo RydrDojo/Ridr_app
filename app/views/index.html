@@ -12,6 +12,7 @@
                         <p><input type="email" name="email" placeholder="Email" required></p>
                         <p><input type="text" name="username" placeholder="Username" required></p>
                         <p><input type="text" name="city" id="city" placeholder="City"></p>
+                        <p><input type="text" name="state" id="state" placeholder="State"></p>
                         <p><button class="continue" type="submit">Continue</button></p>
                     </form>
                 </div>
@@ -25,8 +26,13 @@
                 <h3>Your Rides</h3>
                 <div class="home_box user_rides">
                     {% if user_rides %}
-                        {% for ride in user_rides %}
-                            <p></p>
+                        {% for event in user_rides %}
+                            <h4>{{ event.origin }} <small>to</small> {{ event.destination }} <span
+                                    class="date_time"><small>Leaving: {{ event.ride_date }} {{ event.ride_time
+                                }}</small></span></h4>
+                            <div class="ride">
+                                <div>{{ event.username }}</div>
+                            </div>
                         {% endfor %}
                     {% else %}
                         <p>Nothing Found Here. <a href="/event/new">Add a Ride?</a></p>
@@ -89,13 +95,5 @@
         if (window.location.hash && window.location.hash == '#_=_') {
             window.location.hash = '';
         }
-        jQuery(function($){
-            $(document).ready(function(){
-                $( "#city" ).autocomplete({
-                    source: us_cities,
-                    autoFocus: true
-                });
-            });
-        });
     </script>
 {% endblock %}
