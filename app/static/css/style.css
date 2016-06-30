@@ -235,7 +235,9 @@ section {
     padding: 0 20px;
 }
 
-.get_started {
+.get_started,
+.new_ride_button,
+.continue {
   background-color: #F37C20;
   border: medium none;
   color: white;
@@ -244,6 +246,12 @@ section {
   margin: auto;
   padding: 15px 0;
   width: 380px;
+}
+
+.new_ride_button {
+    margin: 0;
+    margin-left: 100px;
+    margin-top: 40px;
 }
 
 .login_container {
@@ -269,4 +277,14 @@ section {
 
 .map {
     background-repeat: no-repeat;
+}
+
+.new_ride_container input,
+.home input {
+    width: 600px;
+    margin-bottom: 10px;
+}
+
+.new_user {
+    text-align: center;
 }

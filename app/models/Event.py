@@ -14,6 +14,9 @@ class Event(Model):
             return {'status': True, 'event': event}
         return {'status': False}
 
+    def add_event(self, form):
+        query = "SELECT * FROM events WHERE from = :from AND to = :to"
+
     def delete_event(self, event_id):
         query = "SELECT * FROM events WHERE event_id = :event_id"
         data = {

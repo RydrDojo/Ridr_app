@@ -5,13 +5,16 @@
     <div class="home">
         {%if 'user' in session%}
             {% if 'new_user' in session %}
-                <h1>Hello, {{ session['user']['first_name'] }}! Thanks for signing up.</h1>
-                <h2>We just need a little more info:</h2>
-                <form class="new_user" action="/register/process" method="POST">
-                    <p><input class="form-control" type="email" name="email" placeholder="Email" required></p>
-                    <p><input class="form-control" type="text" name="username" placeholder="Username" required></p>
-                    <p><button type="submit">Continue</button></p>
-                </form>
+                <div class="new_user">
+                    <h1>Hello, {{ session['user']['first_name'] }}! Thanks for signing up.</h1>
+                    <h2>We just need a little more info:</h2>
+                    <form class="new_user" action="/register/process" method="POST">
+                        <p><input type="email" name="email" placeholder="Email" required></p>
+                        <p><input type="text" name="username" placeholder="Username" required></p>
+                        <p><input type="text" name="city" id="city" placeholder="City"></p>
+                        <p><button class="continue" type="submit">Continue</button></p>
+                    </form>
+                </div>
             {% else %}
                 <div class="user_header">
                     <div class="profile_pic">
@@ -86,5 +89,13 @@
         if (window.location.hash && window.location.hash == '#_=_') {
             window.location.hash = '';
         }
+        jQuery(function($){
+            $(document).ready(function(){
+                $( "#city" ).autocomplete({
+                    source: us_cities,
+                    autoFocus: true
+                });
+            });
+        });
     </script>
 {% endblock %}

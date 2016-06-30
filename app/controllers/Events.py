@@ -33,3 +33,13 @@ class Events(Controller):
         if status['status']:
             flash('Event removed!', 'success')
         return redirect('/')
+
+    # routes['POST']['/event/new/process'] = "Events#new_process"
+    def new_process(self):
+        event = self.models['Event'].add_event(request.form)
+
+        return redirect('/event')
+
+    # routes['POST']['/event/new/list/process'] = "Events#new_list_process"
+
+    # routes['POST']['/event/new/create/process'] = "Events#new_create_process"
