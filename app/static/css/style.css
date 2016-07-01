@@ -586,7 +586,7 @@ section {
 }
 
 @media (max-width: 768px) {
-    .callout_buttons {
+    .user_header div {
         float: none;
         display: block;
     }
