@@ -630,7 +630,14 @@ section {
     }
     .callout,
     .callout_p {
-        width: 100%;
         display: block;
+    }
+
+    .callout_p {
+        width: 100%;
+    }
+
+    .callout {
+        margin: auto;
     }
 }
