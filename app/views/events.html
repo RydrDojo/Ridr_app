@@ -13,10 +13,12 @@
                     event.ride_date
                     }} {{ event.ride_time }}</span></h3>
                 <div class="ride">
-                    <div class="col-md-4">{{ event.username }}</div>
-                    <div class="rider_rating">
-                        <p data-rating="{{ event.carma }}"
-                           style="background-image:url({{url_for('static',filename='images/stars.png')}});"></p>
+                    <div class="col-md-6">
+                        <div class="col-md-4">{{ event.username }}</div>
+                        <div class="rider_rating col-md-4">
+                            <p data-rating="{{ event.carma }}"
+                               style="background-image:url({{url_for('static',filename='images/stars.png')}});"></p>
+                        </div>
                     </div>
                 </div>
                 <script>
