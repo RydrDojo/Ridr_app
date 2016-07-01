@@ -584,3 +584,15 @@ section {
         display: none;
     }
 }
+
+@media (max-width: 768px) {
+    .callout_buttons {
+        float: none;
+        display: block;
+    }
+    .callout_buttons button {
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+}
