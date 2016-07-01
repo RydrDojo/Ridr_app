@@ -10,16 +10,23 @@ class Events(Controller):
     # routes['/events'] = "Events#index"
     def index(self):
         events = self.models['Event'].get_events()
-        events = events['events']
-        if events:
+        if events['status']:
+            events = events['events']
             for event in events:
                 event['ride_date'] = event['ride_date'].strftime("%x")
-        return self.load_view('events.html', events=events)
+            return self.load_view('events.html', events=events)
+        return self.load_view('events.html')
 
     # routes['/event/<event_id>'] = "Events#show_event"
-    def show_event(self, event_id):
-        event = self.models['Event'].get_event(event_id)
-        return self.load_view('event.html', event=event)
+    def show_event(self, ride_id):
+        session['rides_in'] = []
+        ride = self.models['Event'].get_event(ride_id)
+        ride = ride['ride']
+        ride[0]['ride_id'] = ride[0]['ride_id']
+        rides_in = self.models['Event'].get_events_by_user(session['user']['user_info']['user_id'])
+        for ride_in in rides_in['events']:
+            session['rides_in'].append(int(ride_in['rides_ride_id']))
+        return self.load_view('event.html', ride=ride, rides_in=session['rides_in'])
 
     # routes['/event/new'] = "Events#new"
     def new(self):
@@ -42,15 +49,14 @@ class Events(Controller):
 
     # routes['POST']['/event/new/process'] = "Events#new_process"
     def new_process(self):
-        event = self.models['Event'].add_event(request.form)
-        if event['status']:
-            # event doesn't yet exist
-            event = self.models['Event'].add_event_process(request.form, session['user']['id'], session['user'][
-                'user_info']['user_id'])
-            return redirect('/event/'+str(event['event']['event_id']))
-        # event exists
-        return redirect('/event/'+str(event['event']['event_id']))
+        ride = self.models['Event'].add_event_process(request.form, session['user']['id'], session['user']['user_info']['user_id'])
+        return redirect('/event/'+str(ride['ride']['ride_id']))
 
-    # routes['POST']['/event/new/list/process'] = "Events#new_list_process"
+    def ride_join(self, ride_id):
+        self.models['Event'].add_user_to_ride(ride_id, int(format(session['user']['user_info']['user_id'], 'x')))
+        session['rides_in'].append(ride_id)
+        return redirect('/event/'+str(ride_id)+'#top')
 
-    # routes['POST']['/event/new/create/process'] = "Events#new_create_process"
+    def ride_leave(self, ride_id):
+        self.models['Event'].remove_user_from_ride(ride_id, int(format(session['user']['user_info']['user_id'], 'x')))
+        return redirect('/event/'+str(ride_id)+'#top')

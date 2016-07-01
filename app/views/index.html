@@ -22,6 +22,14 @@
                         <img src="{{ session['user']['picture'] }}" alt="profile picture" class="profile_pic">
                     </div>
                     <h1>{{ session['user']['first_name'] }}</h1>
+                    <div class="callout_buttons">
+                        <a href="/events">
+                            <button><i class="fa fa-street-view" aria-hidden="true"></i> Need a Ride?</button>
+                        </a>
+                        <a href="/event/new">
+                            <button><i class="fa fa-car" aria-hidden="true"></i> Driving Somewhere?</button>
+                        </a>
+                    </div>
                 </div>
                 <h3>Your Rides</h3>
                 <div class="home_box user_rides">
@@ -30,26 +38,9 @@
                             <h4>{{ event.origin }} <small>to</small> {{ event.destination }} <span
                                     class="date_time"><small>Leaving: {{ event.ride_date }} {{ event.ride_time
                                 }}</small></span></h4>
-                            <div class="ride">
-                                <div>{{ event.username }}</div>
-                            </div>
                         {% endfor %}
                     {% else %}
                         <p>Nothing Found Here. <a href="/event/new">Add a Ride?</a></p>
-                    {% endif %}
-                </div>
-                <h3>Inbox</h3>
-                <div class="home_box inbox">
-                    {% if user_messages %}
-                        {% for user_message in user_messages %}
-                            <div class="user_message">
-                                <div class="sender">
-
-                                </div>
-                            </div>
-                        {% endfor %}
-                    {% else %}
-                        <p>No new messages</p>
                     {% endif %}
                 </div>
                 <h3>Ratings</h3>

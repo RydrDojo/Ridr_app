@@ -5,26 +5,50 @@
     <div class="new_ride_container">
         <h1>New Ride</h1>
         <p>Awesome! Let's add a ride. First, where are you coming from and where are you going?</p>
-        <form action="/event/new/process" class="col-md-4" method="POST">
-            <p><strong>From:</strong></p>
-            <p>
-                <input type="text" name="origin" id="origin" placeholder="From"
-                       value="{{ session['user']['city'] }}"></p>
-            <p><strong>To:</strong></p>
-            <p>
-                <input type="text" name="destination" id="destination" placeholder="To"></p>
-            <p>When:</p>
-            <p><input type="text" name="date" id="datepicker" placeholder="Date"></p>
-            <p>Time:</p>
-            <p><input type="text" name="time" id="timepicker" placeholder="Time"></p>
-            <p><button class="new_ride_button" type="submit">Continue</button></p>
+        <form action="/event/new/process" method="POST">
+            <div class="row">
+                <div class="col-md-4">
+                    <p><strong>From:</strong></p>
+                    <p>
+                        <input type="text" name="origin" id="origin" placeholder="From"
+                               value="{{ session['user']['city'] }}"></p>
+                    <p><strong>To:</strong></p>
+                    <p>
+                        <input type="text" name="destination" id="destination" placeholder="To"></p>
+                    <p>When:</p>
+                    <p><input type="text" name="date" id="datepicker" placeholder="Date"></p>
+                    <p>Time:</p>
+                    <p><input type="text" name="time" id="timepicker" placeholder="Time"></p>
+                    <p><button class="new_ride_button" id="continue_button" type="button">Continue</button></p>
+                </div>
+                <div class="map col-md-8"
+                     style="background-image: url({{ url_for('static', filename='images/loading.gif') }});"></div>
+            </div>
+            <div class="more_fields row">
+                <div class="col-md-4">
+                    <p>Tell us about the ride:</p>
+                    <p><textarea name="ride_description" cols="30" rows="5"
+                                 placeholder="Description"></textarea><small>Pet friendly? Kid friendly? 420 friendly?</small></p>
+                    <p>How many open seats do you have?</p>
+                    <p><input type="text" name="max_passengers" placeholder="eg. 4"></p>
+                    <p><button type="submit" class="new_ride_button">Let's Go!</button></p>
+                </div>
+            </div>
         </form>
-        <div class="map col-md-8"
-             style="background-image: url({{ url_for('static', filename='images/loading.gif') }});"></div>
     </div>
     <script>
         jQuery(function($){
             $(document).ready(function(){
+
+                $('#continue_button').click(function(){
+                    $(this).fadeOut(function(){
+                        $(this).remove();
+                        $('.more_fields').fadeIn();
+                        $('html, body').animate({
+                            scrollTop: $('.more_fields').offset().top - 20
+                        }, 1000);
+                    });
+                });
 
                 $( "#datepicker" ).datepicker();
 

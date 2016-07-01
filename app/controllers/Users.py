@@ -15,7 +15,7 @@ facebook = OAuth2Service(
 )
 
 app_id = "259154491127882"
-redirect_uri = 'http://carmarider.com/'
+redirect_uri = 'http://localhost:5000/'
 
 params = {
     'scope': 'read_stream',
@@ -36,7 +36,6 @@ class Users(Controller):
     # routes['/'] = "Users#index"
     def index(self):
         if 'user' in session:
-            print session['user']['user_info']
             user_rides = self.models['Event'].get_events_by_user(session['user']['user_info']['user_id'])
             if user_rides['status']:
                 for ride in user_rides['events']:
@@ -61,8 +60,8 @@ class Users(Controller):
     def show_user(self, user_id):
         if 'user' in session:
             user = self.models['User'].get_user(user_id)
-            if user:
-                return self.load_view('user.html', user=user)
+            if user['status']:
+                return self.load_view('user.html', user=user['user'])
             return redirect('/')
         return redirect('/')
 
@@ -76,12 +75,12 @@ class Users(Controller):
     def login_process(self):
         if 'user' in session:
             return redirect('/')
-        return redirect("https://www.facebook.com/dialog/oauth?client_id="+app_id+"&redirect_uri=http://carmarider.com/oauth-authorized/")
+        return redirect("https://www.facebook.com/dialog/oauth?client_id="+app_id+"&redirect_uri=http://localhost:5000/oauth-authorized/")
 
     def oauth_authorized(self):
         code = request.args.get('code')
         json_str = urllib2.urlopen("https://graph.facebook.com/v2.3/oauth/access_token?client_id=" +
-                                   app_id + "&redirect_uri=http://carmarider.com/oauth-authorized/&client_secret"
+                                   app_id + "&redirect_uri=http://localhost:5000/oauth-authorized/&client_secret"
                                     "=c5b9a2e1e25bfa25abc75a9cd2af450a&code=" + code).read()
         token = json.loads(json_str)
         token = token['access_token']
@@ -96,7 +95,9 @@ class Users(Controller):
             # already registered
         session['user'] = register_data
         session['user']['user_info'] = self.models['User'].get_user_by_fbid(session['user']['id'])['user']
+        session['user']['user_info']['user_id'] = session['user']['user_info']['user_id']
         session['user']['picture'] = user_picture['picture']['data']['url']
+        session['rides_in'] = []
         return redirect('/')
 
     def register_process(self):

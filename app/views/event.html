@@ -1,2 +1,98 @@
 {% extends "layout.html" %}
-{% block %}{% endblock %}
+{% block title %}Ridr | Ride{% endblock %}
+{% block body_class %}single_ride{% endblock %}
+{% block content %}
+    {% if ride.ride_complete == 1 %}
+        <div class="row ride_summary">
+            <div class="single_ride_route row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="from"><h1>{{ride.origin}}</h1></div>
+                    <div class=""><h2>to</h2></div>
+                    <div class="to"><h1>{{ride.destination}}</h1></div>
+                </div>
+            </div>
+            <div class="text-center text-primary">
+                <h2>Ride Complete! <i class="fa fa-check-circle-o" aria-hidden="true"></i></h2>
+            </div>
+            <div class="rate_riders">
+                <div class="rate_driver">
+
+                </div>
+                {% if riders %}
+                    {% for rider in riders %}
+                        <div class="rider">
+
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    {% else %}
+    <div class="single_ride_container row">
+        <div class="single_ride_map row">
+            <iframe height="450" frameborder="0" allowfullscreen=""
+                    src="https://www.google.com/maps/embed/v1/directions?mode=driving&amp;key=AIzaSyB08aXlJJerJSvxlwsDfW55Q0alGlOLOKw&amp;origin={{ ride[0].origin }}&amp;destination={{ ride[0].destination }}" style="width: 100%;"></iframe>
+            <div class="overlay"></div>
+            <div id="top"></div>
+        </div>
+        <div class="single_ride_route row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="from"><h1>{{ride[0].origin}}</h1></div>
+                <div class=""><h2>to</h2></div>
+                <div class="to"><h1>{{ride[0].destination}}</h1></div>
+            </div>
+        </div>
+        <div class="single_ride_date row">
+            <div>
+                <span id="ride_date">{{ ride[0].ride_date }}</span> {{ ride[0].ride_time }}
+            </div>
+            <div>
+
+            </div>
+        </div>
+        <div class="single_ride_driver row">
+            <p>Driver: </p>
+            <p><a href="/user/{{ ride[0].user_id }}">{{ ride[0].username }}</a></p>
+        </div>
+        <div class="single_ride_riders row">
+            <p>Riders:</p>
+            {% if ride %}
+                <ol>
+                {% for rider in ride %}
+                    <li>
+                        <div class="rider">
+                            <div class="rider_name">
+                                <p><a href="/user/{{ rider.user_id }}">{{ rider.username }}</a></p>
+                            </div>
+                            <div class="rider_rating">
+                                {{ rider.rating }}
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+                </ol>
+            {% endif %}
+        </div>
+        <div class="join_ride row">
+            {% if ride[0].ride_id not in rides_in %}
+                <div class="row">
+                    <a href="/event/join/{{ride[0].ride_id}}"><span>+</span> Join Ride</a>
+                </div>
+            {% else %}
+                <div class="row leave_ride">
+                    <a href="/event/leave/{{ride[0].ride_id}}"><span>-</span> Leave Ride</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        var date = $('#ride_date').text().split(' ');
+        $('#ride_date').text(date[0]);
+        $(document).ready(function(){
+            $('.single_ride_map iframe').contents().find('.gm-style > div:nth-child(7), .google-maps-link').css({
+                opacity: 0
+            });
+        });
+    </script>
+    {% endif %}
+{% endblock %}

@@ -6,7 +6,10 @@
     <div class="rides">
         {% if events %}
             {% for event in events %}
-                <h3>{{ event.origin }} <small>to</small> {{ event.destination }} <span class="date_time">Leaving: {{
+                <h3><a href="/event/{{ event.ride_id }}">{{ event.origin }} <small>to</small> {{ event.destination
+                    }}</a>
+                    <span
+                        class="date_time">Leaving: {{
                     event.ride_date
                     }} {{ event.ride_time }}</span></h3>
                 <div class="ride">

@@ -43,6 +43,7 @@ p {
     left: 0;
     z-index: 100;
     width: 100%;
+    padding-bottom: 400px;
 }
 
 h1 {
@@ -83,17 +84,32 @@ h2 {
 	background-position: bottom center;
 }
 
+.single_ride .background_full_screen {
+	background-image: url("../images/city.jpg");
+	background-size: cover;
+	filter: blur(2px);
+	background-position: bottom center;
+}
+
 .login:not(.logged_user) .background_full_screen {
 
 }
 
 header {
     background-color: #F37C20;
+    background: rgb(243,124,32);
+background: -moz-linear-gradient(left,  rgba(243,124,32,1) 28%, rgba(255,0,114,1) 100%);
+background: -webkit-linear-gradient(left,  rgba(243,124,32,1) 28%,rgba(255,0,114,1) 100%);
+background: linear-gradient(to right,  rgba(243,124,32,1) 28%,rgba(255,0,114,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f37c20', endColorstr='#ff0072',GradientType=1 );
+
+
 	padding: 10px 0 0;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
+	z-index: 10;
 }
 
 .home:not(.logged_user) header {
@@ -167,17 +183,13 @@ section {
 .new_user p {
     font-size: 1.6rem;
 }
-.copyright {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    left: 0;
-}
 
 .home_box {
     padding: 30px;
     background-color: #ddd;
     text-align: center;
+    margin: auto;
+    width: 70%;
 }
 
 .rides .rides .ride {
@@ -197,6 +209,11 @@ section {
     margin-top: 30px;
 }
 
+.home h3 {
+    width: 70%;
+    margin: 40px auto 0;
+}
+
 .rides h3 {
     font-size: 2rem;
     font-family: "Raleway", sans-serif;
@@ -211,7 +228,7 @@ section {
     padding-top: 20px;
 }
 
-.user_header div {
+.user_header div:not(:last-child) {
     margin-right: 10px;
 }
 
@@ -265,6 +282,7 @@ section {
 .new_ride_button,
 .continue {
   background-color: #F37C20;
+  background: rgb(255,0,114);
   border: medium none;
   color: white;
   display: block;
@@ -331,4 +349,138 @@ section {
 
 .home h1 {
   color: white;
+}
+
+.callout_buttons {
+    float: right;
+}
+
+.callout_buttons button {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid white;
+    color: white;
+    font-size: 2rem;
+    padding: 14px 24px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.callout_buttons button:hover {
+
+}
+
+.callout_buttons i {
+    color: #F37C20;
+}
+
+.single_ride_container {
+    background-color: white;
+}
+
+.single_ride_container > div:not(:first-child) {
+    border-bottom: 2px solid #666;
+    padding: 20px 30px;
+}
+
+.single_ride_map {
+    position: relative;
+}
+
+.single_ride_route > div {
+    text-align: center;
+}
+
+.single_ride_route div div {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.single_ride_route .from,
+.single_ride_route .to {
+    padding: 0 20px;
+}
+
+.single_ride_route div div:nth-child(2) h2 {
+    font-size: 3rem;
+    margin: 20px 0 0;
+}
+
+.single_ride_date {
+    font-size: 3rem;
+}
+
+.ride_summary h2 {
+    font-size: 3.3rem;
+}
+
+.rides h3 a {
+    color: inherit;
+}
+
+.new_ride_container textarea {
+    margin: 0;
+    padding: 10px 20px;
+    background: #f8f8f8;
+    border: 3px solid #ddd;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #888;
+}
+
+.more_fields {
+    display: none;
+}
+
+.more_fields small {
+    color: #aaa;
+}
+
+.start h1 {
+    color: #333;
+}
+
+.join_ride span {
+  border: 1px solid;
+  border-radius: 50%;
+  display: block;
+  font-family: "Raleway";
+  font-size: 13rem;
+  font-weight: 100;
+  height: 70px;
+  line-height: 0;
+  padding-top: 35px;
+  text-align: center;
+  width: 70px;
+  float: left;
+  margin-right: 10px;
+}
+
+.join_ride {
+    font-family: "Raleway";
+    font-size: 4rem;
+    line-height: 69px;
+}
+
+.single_ride_map {
+    position: relative;
+}
+
+.single_ride_map .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.leave_ride span {
+    padding-top: 23px;
+}
+
+#top {
+  bottom: 87px;
+  height: 1px;
+  position: absolute;
+  width: 100%;
 }

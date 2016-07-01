@@ -2,7 +2,6 @@
 input[type="text"],
 input[type='email'],
 input[type='date'],
-textarea, 
 textarea.form-control {
 	height: 50px;
     margin: 0;
