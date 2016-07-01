@@ -546,7 +546,7 @@ section {
   transition: 0.3s all;
 }
 
-.sidr.left.open {
+#sidr.open {
     left: 0 !important;
   transition: 0.3s all;
 }
