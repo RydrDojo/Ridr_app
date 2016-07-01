@@ -90,12 +90,11 @@
     <script>
         jQuery(function($){
             $(document).ready(function() {
-                $('#mobile_menu').sidr();
                 $('#mobile_menu').on('click',function(){
                     if ( $('.open') ) {
                         $('.open').removeClass('open');
                     } else {
-                        $('#sidr').toggleClass('open');
+                        $('#sidr').addClass('open');
                     }
                 });
             });
