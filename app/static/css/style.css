@@ -556,8 +556,15 @@ section {
   z-index: 99999;
 }
 
+#sidr img {
+  background-color: #f37c20;
+  height: auto;
+  width: 100%;
+}
+
 #mobile-menu {
     display: none;
+    cursor: pointer;
 }
 
 @media (max-width: 990px) {
