@@ -37,9 +37,15 @@
 <body class="{% block body_class %}{% endblock %} {%if 'user' in session%}logged_user{%endif%}">
     <div id="sidr" class="sidr">
         <ul>
-            <li><a href="#">List 1</a></li>
-            <li><a href="#">List 2</a></li>
-            <li><a href="#">List 3</a></li>
+            {%if 'user' not in session%}
+                <li><a href="/login">Login</a></li>
+                <li><a href="/login">Sign Up</a></li>
+            {%else%}
+                <li><a href="/event/new">New Ride</a></li>
+                <li><a href="/events">Rides</a></li>
+                <li><a href="/">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {%endif%}
         </ul>
     </div>
     <div class="background_full_screen"></div>
