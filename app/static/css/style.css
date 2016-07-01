@@ -553,6 +553,7 @@ section {
   position: absolute;
   right: 35px;
   top: 21px;
+  z-index: 99999;
 }
 
 #mobile-menu {
