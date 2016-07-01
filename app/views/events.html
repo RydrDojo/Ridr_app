@@ -19,6 +19,20 @@
                            style="background-image:url({{url_for('static',filename='images/stars.png')}});"></p>
                     </div>
                 </div>
+                <script>
+                    jQuery(function($){
+                        $('.rider_rating p').each(function(){
+                            var star_rating = $(this).attr('data-rating');
+                            var offset = 250;
+                            for(var i = 0; i < star_rating / 0.5; i++) {
+                                offset -= 25;
+                            }
+                            var output = '0% ';
+                            output += -offset + 'px';
+                            $(this).css('background-position',output);
+                        });
+                    });
+                </script>
             {% endfor %}
         {% else %}
             <p>
@@ -26,19 +40,5 @@
                 a ride!</a>
             </p>
         {% endif %}
-        <script>
-            jQuery(function($){
-                $('.rider_rating p').each(function(){
-                    var star_rating = $(this).attr('data-rating');
-                    var offset = 250;
-                    for(var i = 0; i < star_rating / 0.5; i++) {
-                        offset -= 25;
-                    }
-                    var output = '0% ';
-                    output += -offset + 'px';
-                    $(this).css('background-position',output);
-                });
-            });
-        </script>
     </div>
 {% endblock %}
