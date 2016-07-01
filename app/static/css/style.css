@@ -583,8 +583,13 @@ section {
     .top_menu {
         display: none;
     }
-    .home_box {
+    .home_box,
+    .home h3 {
         width: 100%;
+    }
+    .rides .date_time {
+        float: none;
+        display: block;
     }
 }
 
