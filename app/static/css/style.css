@@ -628,4 +628,8 @@ section {
         width: 100%;
         margin: 0;
     }
+    .callout,
+    .callout_p {
+        display: block;
+    }
 }
