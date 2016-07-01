@@ -47,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/app/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="394">
-              <caret line="630" column="25" selection-start-line="630" selection-start-column="25" selection-end-line="630" selection-end-column="25" />
+              <caret line="630" column="22" selection-start-line="630" selection-start-column="22" selection-end-line="630" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -939,7 +939,7 @@
     <entry file="file://$PROJECT_DIR$/app/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="394">
-          <caret line="630" column="25" selection-start-line="630" selection-start-column="25" selection-end-line="630" selection-end-column="25" />
+          <caret line="630" column="22" selection-start-line="630" selection-start-column="22" selection-end-line="630" selection-end-column="22" />
           <folding />
         </state>
       </provider>
