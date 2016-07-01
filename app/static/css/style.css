@@ -615,6 +615,7 @@ section {
     }
     .get_started, .new_ride_button, .continue {
         width: 100%;
+        margin-top: 40px;
     }
 }
 
@@ -635,6 +636,7 @@ section {
 
     .callout_p {
         width: 100%;
+        text-align: justify;
     }
 
     .callout {
