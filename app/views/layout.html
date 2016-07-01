@@ -52,7 +52,7 @@
             {% endif %}
         {% endwith %}
         <header>
-            <a id="mobile-menu" href="#sidr"><i class="fa fa-bars" aria-hidden="true"></i></a>
+            <i id="mobile-menu" class="fa fa-bars" aria-hidden="true"></i>
             <div class="header container {% block header_class %}{% endblock %}">
                 <div class="row">
                     <div class="site_logo col-md-3">
@@ -90,8 +90,8 @@
     <script>
         jQuery(function($){
             $(document).ready(function() {
-                $('#mobile_menu').on('click',function(){
-                    if ( $('.open') ) {
+                $('#mobile-menu').on('click',function(){
+                    if ( $('.open').length > 0 ) {
                         $('.open').removeClass('open');
                     } else {
                         $('#sidr').addClass('open');
