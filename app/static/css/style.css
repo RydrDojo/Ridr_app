@@ -98,12 +98,10 @@ h2 {
 header {
     background-color: #F37C20;
     background: rgb(243,124,32);
-background: -moz-linear-gradient(left,  rgba(243,124,32,1) 28%, rgba(255,0,114,1) 100%);
-background: -webkit-linear-gradient(left,  rgba(243,124,32,1) 28%,rgba(255,0,114,1) 100%);
-background: linear-gradient(to right,  rgba(243,124,32,1) 28%,rgba(255,0,114,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f37c20', endColorstr='#ff0072',GradientType=1 );
-
-
+    background: -moz-linear-gradient(left,  rgba(243,124,32,1) 28%, rgba(255,0,114,1) 100%);
+    background: -webkit-linear-gradient(left,  rgba(243,124,32,1) 28%,rgba(255,0,114,1) 100%);
+    background: linear-gradient(to right,  rgba(243,124,32,1) 28%,rgba(255,0,114,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f37c20', endColorstr='#ff0072',GradientType=1 );
 	padding: 10px 0 0;
 	position: fixed;
 	top: 0;
@@ -160,7 +158,8 @@ section {
 }
 
 .start{
-    width: 800px;
+    max-width: 800px;
+    width: 100%;
     margin: auto;
     margin-top: 20px;
     background-color: rgba(255,255,255,0.7);
