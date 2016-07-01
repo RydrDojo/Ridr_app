@@ -581,6 +581,10 @@ section {
   width: 128px;
 }
 
+.rides .ride .rider_rating p {
+  margin: 0;
+}
+
 @media (max-width: 990px) {
     section {
         padding-top: 174px;
