@@ -577,6 +577,10 @@ section {
     cursor: pointer;
 }
 
+.rider_rating p {
+  width: 128px;
+}
+
 @media (max-width: 990px) {
     section {
         padding-top: 174px;
