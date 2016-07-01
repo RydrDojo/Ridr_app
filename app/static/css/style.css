@@ -642,4 +642,7 @@ section {
     .callout {
         margin: auto;
     }
+    .user_ride {
+        padding: 20px;
+    }
 }
