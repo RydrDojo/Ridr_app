@@ -630,6 +630,7 @@ section {
     }
     .callout,
     .callout_p {
+        width: 100%;
         display: block;
     }
 }
