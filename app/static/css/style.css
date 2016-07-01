@@ -546,3 +546,9 @@ section {
     left: 0 !important;
   transition: 0.3s all;
 }
+
+@media (max-width: 990px) {
+    section {
+        padding-top: 174px;
+    }
+}
