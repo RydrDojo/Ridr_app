@@ -588,12 +588,12 @@ section {
         width: 100%;
     }
     .rides h3 {
-        font-size: 5rem;
+        font-size: 3.5rem;
     }
     .rides .date_time {
         float: none;
         display: block;
-        font-size: 3rem;
+        font-size: 2rem;
     }
 }
 
