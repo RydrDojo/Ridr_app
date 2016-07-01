@@ -21,7 +21,7 @@ class Event(Model):
         events = self.db.query_db(query, data)
         if events:
             return {'status': True, 'events': events}
-        return {'status': False}
+        return {'status': False, 'events': []}
 
     def get_event(self, ride_id):
         query = "SELECT * FROM users " \
