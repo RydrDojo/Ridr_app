@@ -533,3 +533,11 @@ section {
 #user_rating {
   width: 128px;
 }
+
+#sidr {
+    z-index: 100;
+}
+
+.sidr.left.open {
+    left: 0 !important;
+}
