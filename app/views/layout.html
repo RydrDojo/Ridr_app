@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.structure.min.css' )}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.theme.min.css' )}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.timepicker.css' )}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.sidr.dark.min.css' )}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' )}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.sidr.js') }}"></script>
     <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/jquery.timepicker.min.js') }}"></script>
     <script>
@@ -33,6 +35,13 @@
     </script>
 </head>
 <body class="{% block body_class %}{% endblock %} {%if 'user' in session%}logged_user{%endif%}">
+    <div id="sidr">
+        <ul>
+            <li><a href="#">List 1</a></li>
+            <li><a href="#">List 2</a></li>
+            <li><a href="#">List 3</a></li>
+        </ul>
+    </div>
     <div class="background_full_screen"></div>
     <div class="main_wrap">
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -43,6 +52,7 @@
             {% endif %}
         {% endwith %}
         <header>
+            <a id="mobile-menu" href="#sidr"><i class="fa fa-bars" aria-hidden="true"></i></a>
             <div class="header container {% block header_class %}{% endblock %}">
                 <div class="row">
                     <div class="site_logo col-md-3">
@@ -77,6 +87,13 @@
             &copy 2016 Ridr
         </div>
     </footer>
+    <script>
+        jQuery(function($){
+            $(document).ready(function() {
+                $('#mobile_menu').sidr();
+            });
+        });
+    </script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
