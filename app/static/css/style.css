@@ -534,6 +534,14 @@ section {
   width: 128px;
 }
 
+#sidr {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  width: 260px;
+  z-index: 210;
+  left: -300px;
+  transition: 0.3s all;
+}
+
 #sidr.open {
     left: 0 !important;
   transition: 0.3s all;
