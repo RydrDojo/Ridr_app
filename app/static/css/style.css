@@ -547,8 +547,24 @@ section {
   transition: 0.3s all;
 }
 
+#mobile-menu {
+    display: none;
+}
+
 @media (max-width: 990px) {
     section {
         padding-top: 174px;
+    }
+}
+
+@media (max-width: 800px) {
+    section {
+        padding-top: 104px;
+    }
+    #mobile-menu {
+        display: block;
+    }
+    .top_menu {
+        display: none;
     }
 }

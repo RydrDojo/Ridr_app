@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b04e2eab-a19c-4b18-b855-426037330b2b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/static/css/style.css" afterPath="$PROJECT_DIR$/app/static/css/style.css" />
     </list>
     <ignored path="rydr.iws" />
@@ -47,8 +46,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="551" column="8" selection-start-line="551" selection-start-column="8" selection-end-line="551" selection-end-column="8" />
+            <state relative-caret-position="469">
+              <caret line="561" column="23" selection-start-line="561" selection-start-column="23" selection-end-line="561" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -935,8 +934,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="551" column="8" selection-start-line="551" selection-start-column="8" selection-end-line="551" selection-end-column="8" />
+        <state relative-caret-position="469">
+          <caret line="561" column="23" selection-start-line="561" selection-start-column="23" selection-end-line="561" selection-end-column="23" />
           <folding />
         </state>
       </provider>
