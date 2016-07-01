@@ -24,8 +24,9 @@ class Events(Controller):
         ride = ride['ride']
         ride[0]['ride_id'] = ride[0]['ride_id']
         rides_in = self.models['Event'].get_events_by_user(session['user']['user_info']['user_id'])
-        for ride_in in rides_in['events']:
-            session['rides_in'].append(int(ride_in['rides_ride_id']))
+        if rides_in:
+            for ride_in in rides_in['events']:
+                session['rides_in'].append(int(ride_in['rides_ride_id']))
         my_fb_user_id = session['user']['id']
         return self.load_view('event.html', ride=ride, rides_in=session['rides_in'], my_fb_user_id=my_fb_user_id)
 
