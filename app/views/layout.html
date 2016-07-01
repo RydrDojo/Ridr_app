@@ -36,6 +36,7 @@
 </head>
 <body class="{% block body_class %}{% endblock %} {%if 'user' in session%}logged_user{%endif%}">
     <div id="sidr" class="sidr">
+        <a href="/"><img class="logo" src="{{ url_for('static', filename='images/ridr_transparent-1.png') }}"></a>
         <ul>
             {%if 'user' not in session%}
                 <li><a href="/login">Login</a></li>
@@ -62,9 +63,8 @@
             <div class="header container {% block header_class %}{% endblock %}">
                 <div class="row">
                     <div class="site_logo col-md-3">
-                        <a
-                                href="/"><img class="logo"
-                                              src="{{ url_for('static', filename='images/ridr_transparent-1.png') }}"></a>
+                        <a href="/"><img class="logo"
+                                         src="{{ url_for('static', filename='images/ridr_transparent-1.png') }}"></a>
                     </div>
                     <div class="top_menu col-md-9">
                         <ul>
