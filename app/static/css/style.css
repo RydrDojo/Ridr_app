@@ -548,6 +548,14 @@ section {
 }
 
 #mobile-menu {
+  color: white;
+  font-size: 4rem;
+  position: absolute;
+  right: 35px;
+  top: 21px;
+}
+
+#mobile-menu {
     display: none;
 }
 
