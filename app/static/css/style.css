@@ -587,9 +587,13 @@ section {
     .home h3 {
         width: 100%;
     }
+    .rides h3 {
+        font-size: 5rem;
+    }
     .rides .date_time {
         float: none;
         display: block;
+        font-size: 3rem;
     }
 }
 
