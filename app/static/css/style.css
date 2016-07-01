@@ -1,5 +1,15 @@
 @import 'fonts.css';
 
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
 * {
     box-sizing: border-box;
 }
