@@ -91,6 +91,9 @@
         jQuery(function($){
             $(document).ready(function() {
                 $('#mobile_menu').sidr();
+                $('#mobile_menu').on('click',function(){
+                    $('#sidr').toggleclass('open');
+                });
             });
         });
     </script>
