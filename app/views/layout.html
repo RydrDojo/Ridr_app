@@ -92,7 +92,11 @@
             $(document).ready(function() {
                 $('#mobile_menu').sidr();
                 $('#mobile_menu').on('click',function(){
-                    $('#sidr').toggleClass('open');
+                    if ( $('.open') ) {
+                        $('.open').removeClass('open');
+                    } else {
+                        $('#sidr').toggleClass('open');
+                    }
                 });
             });
         });
