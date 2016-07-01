@@ -97,6 +97,13 @@
                         $('#sidr').addClass('open');
                     }
                 });
+                $(document).mouseup(function (e) {
+                    var container = $("#sidr");
+
+                    if (!container.is(e.target) && container.has(e.target).length === 0) {
+                        $('.open').removeClass('open');
+                    }
+                });
             });
         });
     </script>
