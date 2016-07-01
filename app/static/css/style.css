@@ -583,10 +583,13 @@ section {
     .top_menu {
         display: none;
     }
+    .home_box {
+        width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
-    .user_header div {
+    .user_header div:not(:first-child) {
         float: none;
         display: block;
     }
