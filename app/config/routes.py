@@ -18,7 +18,7 @@ routes['/event/new'] = "Events#new"
 routes['/event/<ride_id>'] = "Events#show_event"
 routes['/event/new/list/<events>'] = "Events#new_list"
 routes['/event/new/create/<event>'] = "Events#new_create"
-routes['/event/<event_id>/delete'] = "Events#delete"
+routes['/event/<ride_id>/delete'] = "Events#delete"
 
 # POST Routes ===========================================================#
 

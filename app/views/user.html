@@ -8,7 +8,20 @@
             <h3>About Me:</h3>
             <p>{{ user.bio }}</p>
             <h3>Rating:</h3>
-            <p>{{ user.carma }}</p>
+            <p id="user_rating" class="col-md-4" data-rating="{{ user.carma }}"
+                                       style="background-image:url({{url_for('static',filename='images/stars.png')}});"></p>
         </div>
     </div>
+    <script>
+        $('#user_rating').each(function(){
+            var star_rating = $(this).attr('data-rating');
+            var offset = 250;
+            for(var i = 0; i < star_rating / 0.5; i++) {
+                offset -= 25;
+            }
+            var output = '0% ';
+            output += -offset + 'px';
+            $(this).css('background-position',output);
+        });
+    </script>
 {% endblock %}

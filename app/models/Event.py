@@ -90,15 +90,25 @@ class Event(Model):
             return {'status': True, 'ride': ride[0]}
         return {'status': False}
 
-    def delete_event(self, event_id):
-        query = "SELECT * FROM events WHERE event_id = :event_id"
+    def delete_event(self, ride_id, user_id):
+        query = "SELECT * FROM rides WHERE ride_id = :ride_id"
         data = {
-            "event_id": event_id
+            "ride_id": ride_id
         }
         event = self.db.query_db(query, data)
         if event:
-            query = "DELETE FROM rides WHERE event_id = :event_id"
+            # Delete foreign key
+            query = "DELETE FROM users_rides WHERE rides_ride_id = :ride_id AND users_user_id = :user_id"
+            data = {
+                "ride_id": ride_id,
+                "user_id": user_id
+            }
             self.db.query_db(query, data)
+
+            # Delete from rides
+            query = "DELETE FROM rides WHERE ride_id = :ride_id"
+            self.db.query_db(query, data)
+
             return {'status': True, 'event': event}
         return {'status': False}
 
@@ -126,3 +136,13 @@ class Event(Model):
             self.db.query_db(query, data)
             return {'status': True}
         return {'status': False}
+
+    def get_users_by_ride(self, ride_id):
+        query = "SELECT * FROM users_rides " \
+                "JOIN users on users.user_id = users_rides.users_user_id " \
+                "WHERE rides_ride_id = :ride_id"
+        data = {
+            "ride_id": ride_id
+        }
+        users = self.db.query_db(query, data)
+        return {'status': True, 'users': users}

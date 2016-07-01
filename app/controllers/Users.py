@@ -39,6 +39,8 @@ class Users(Controller):
             user_rides = self.models['Event'].get_events_by_user(session['user']['user_info']['user_id'])
             if user_rides['status']:
                 for ride in user_rides['events']:
+                    result = self.models['Event'].get_users_by_ride(ride['ride_id'])
+                    ride['users_in_ride'] = result['users']
                     ride['ride_date'] = ride['ride_date'].strftime('%x')
                 return self.load_view('index.html', user_rides=user_rides['events'])
         return self.load_view('index.html')

@@ -32,22 +32,24 @@
                     </div>
                 </div>
                 <h3>Your Rides</h3>
-                <div class="home_box user_rides">
+                <div class="home_box user_rides {% if user_rides %}rides_list{% endif %}">
                     {% if user_rides %}
-                        {% for event in user_rides %}
-                            <h4>{{ event.origin }} <small>to</small> {{ event.destination }} <span
-                                    class="date_time"><small>Leaving: {{ event.ride_date }} {{ event.ride_time
-                                }}</small></span></h4>
+                        {% for ride in user_rides %}
+                            <div class="user_ride">
+                                <h2><a href="/event/{{ ride.ride_id }}">{{ ride.origin }} <small>to</small> {{
+                                    ride.destination }}</a> <span
+                                        class="date_time"><small>Leaving: {{ ride.ride_date }} {{ ride.ride_time
+                                    }}</small></span></h2>
+                                <div class="users_in_ride">
+                                    {% for user in ride['users_in_ride'] %}
+                                        <p><a href="/user/{{ user.user_id }}">{{ user.username }}</a> - <a href="mailto:{{ user.email }}">{{ user.email
+                                            }}</a></p>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         {% endfor %}
                     {% else %}
-                        <p>Nothing Found Here. <a href="/event/new">Add a Ride?</a></p>
-                    {% endif %}
-                </div>
-                <h3>Ratings</h3>
-                <div class="home_box ratings">
-                    {% if user_ratings %}
-                    {% else %}
-                        <p>No ratings</p>
+                        <p class="align-center">Nothing Found Here. <a href="/event/new">Add a Ride?</a></p>
                     {% endif %}
                 </div>
             {% endif %}

@@ -26,7 +26,8 @@ class Events(Controller):
         rides_in = self.models['Event'].get_events_by_user(session['user']['user_info']['user_id'])
         for ride_in in rides_in['events']:
             session['rides_in'].append(int(ride_in['rides_ride_id']))
-        return self.load_view('event.html', ride=ride, rides_in=session['rides_in'])
+        my_fb_user_id = session['user']['id']
+        return self.load_view('event.html', ride=ride, rides_in=session['rides_in'], my_fb_user_id=my_fb_user_id)
 
     # routes['/event/new'] = "Events#new"
     def new(self):
@@ -41,8 +42,8 @@ class Events(Controller):
         return self.load_view('new.html', event=event)
 
     # routes['/event/<event_id>/delete'] = "Events#delete"
-    def delete(self, event_id):
-        status = self.models['Event'].delete_event(event_id)
+    def delete(self, ride_id):
+        status = self.models['Event'].delete_event(ride_id, session['user']['user_info']['user_id'])
         if status['status']:
             flash('Event removed!', 'success')
         return redirect('/')

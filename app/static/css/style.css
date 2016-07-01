@@ -187,7 +187,6 @@ section {
 .home_box {
     padding: 30px;
     background-color: #ddd;
-    text-align: center;
     margin: auto;
     width: 70%;
 }
@@ -483,4 +482,55 @@ section {
   height: 1px;
   position: absolute;
   width: 100%;
+}
+
+.user_ride {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 10px 70px;
+}
+
+.rides_list {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.user_ride h2 {
+  border-bottom: 2px solid;
+  padding-bottom: 7px;
+}
+
+.cancel_ride span {
+    font-size: 7rem;
+    padding-top: 28px;
+}
+
+.profile_pic {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.single_ride_riders i,
+.single_ride_driver i {
+    font-size: 2rem;
+}
+
+.single_ride_riders i {
+    font-size: 2.6rem;
+}
+
+.single_ride_riders ul,
+.single_ride_riders li {
+    list-style: none;
+    margin: 0;
+}
+
+.rider_rating p,
+#user_rating {
+    height: 25px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#user_rating {
+  width: 128px;
 }
