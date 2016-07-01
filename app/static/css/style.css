@@ -613,6 +613,9 @@ section {
         display: block;
         font-size: 2rem;
     }
+    .get_started, .new_ride_button, .continue {
+        width: 100%;
+    }
 }
 
 @media (max-width: 768px) {
