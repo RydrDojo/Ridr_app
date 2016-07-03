@@ -620,6 +620,9 @@ section {
     .more_fields textarea {
         display: block;
     }
+    .home h3, .rides h3 {
+        background-color: rgba(0,0,0,0.8);
+    }
 }
 
 @media (max-width: 768px) {
